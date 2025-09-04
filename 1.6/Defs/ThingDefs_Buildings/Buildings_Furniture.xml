@@ -23,6 +23,7 @@
     </building>
     <researchPrerequisites>
       <li>Gha_Research_MonitoringThrone</li>
+      <li>ComplexFurniture</li>
     </researchPrerequisites>
     <ritualFocus>
       <spectateDistance>2</spectateDistance>

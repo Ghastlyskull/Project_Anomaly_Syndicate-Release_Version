@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<Defs>
-  <HistoryEventDef>
-    <defName>AnomalyMissedShuttle</defName>
-    <label>anomaly missed shuttle</label>
-  </HistoryEventDef>
-</Defs>

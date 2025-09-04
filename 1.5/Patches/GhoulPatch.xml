@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-
-<Patch>
-  <Operation Class="PatchOperationAttributeSet">
-    <xpath>Defs/MutantDef[defName="Ghoul"]</xpath>
-    <attribute>Name</attribute>
-    <value>GhoulParent</value>
-  </Operation>
-</Patch>

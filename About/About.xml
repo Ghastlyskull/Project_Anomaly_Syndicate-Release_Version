@@ -4,7 +4,6 @@
     <name>Protocol Anomaly: Syndicate</name>
     <author>ghastlyskull</author>
     <supportedVersions>
-		<li>1.5</li>
 		<li>1.6</li>
 	</supportedVersions>
 	<modDependencies>
@@ -38,5 +37,5 @@
 		<li>brrainz.harmony</li>
 	  <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
 	</loadAfter>
-    <description>Secure, Contain, Protect: this is not a test</description>
+    <description>Anomaly Protocol: Syndicate introduces the Shattered Syndicate, an ultratech corporate empire fractured by their long war with darkotech. This mod adds new missions, weapons, armor, and mechanoids, all of which can be earned if you rise through their ranks.</description>
 </ModMetaData>
