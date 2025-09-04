@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{39D7EC24-B2B1-44F8-90B8-91ECE17B202E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectAnomalySyndicate</RootNamespace>
+    <AssemblyName>ProjectAnomalySyndicate</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>latest</LangVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\1.6\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VEF">
+      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\2023507013\1.6\Assemblies\VEF.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comps\CompNextAncientSite.cs" />
+    <Compile Include="Comps\CompRandomAnomalySpawner.cs" />
+    <Compile Include="Comps\CompChanceBeaconSpawner.cs" />
+    <Compile Include="Comps\CompTargetable_SingleMutant.cs" />
+    <Compile Include="Comps\CompMindWake.cs" />
+    <Compile Include="Comps\CompTargetEffect_Mindwake.cs" />
+    <Compile Include="FloatMenuOptionProvider_TransferEntityToTransporter.cs" />
+    <Compile Include="Generation\GenStep_DamageWalls.cs" />
+    <Compile Include="Generation\GenStep_DestroyDoors.cs" />
+    <Compile Include="Generation\SitePartWorker_CultRitual.cs" />
+    <Compile Include="Generation\SitePartWorker_CultExtermination.cs" />
+    <Compile Include="Generation\SitePartWorker_AnomalyExtermination.cs" />
+    <Compile Include="HarmonyPatches\DevourerAbortDigestionSpitbanePatch.cs" />
+    <Compile Include="HarmonyPatches\GenerateBestowingCeremonyQuestPatch.cs" />
+    <Compile Include="HarmonyPatches\HarmonyStarter.cs" />
+    <Compile Include="HarmonyPatches\HypnosisResistancePatches.cs" />
+    <Compile Include="HarmonyPatches\RitualOutcomeBestowingPatch.cs" />
+    <Compile Include="HarmonyPatches\TransferEntityToTransporterPatch.cs" />
+    <Compile Include="HarmonyPatches\WillingToTradeAnomaliesPatch.cs" />
+    <Compile Include="HarmonyPatches\WorkGhoulPatches.cs" />
+    <Compile Include="ModExtensions\HypnosisResistanceModExtension.cs" />
+    <Compile Include="ModExtensions\InvisibilityDisruptorModExtension.cs" />
+    <Compile Include="ModExtensions\BloodRainResistanceModExtension.cs" />
+    <Compile Include="Comps\CompFacilityObeliskSuppressor.cs" />
+    <Compile Include="DefOfs.cs" />
+    <Compile Include="HarmonyPatches\BloodRainTickRestistancePatch.cs" />
+    <Compile Include="HarmonyPatches\HediffCompInvisibilityForcedVisiblePatch.cs" />
+    <Compile Include="HarmonyPatches\ObeliskActivitySupressedInspectStringPatch.cs" />
+    <Compile Include="IncidentWorker_SyndicateTributeCollector.cs" />
+    <Compile Include="JobDrivers\JobDriver_TransferEntityToTransporter.cs" />
+    <Compile Include="JobDrivers\JobDriver_UseMindwake.cs" />
+    <Compile Include="Mod.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quests\QuestNode_AnomalyCheckSequence.cs" />
+    <Compile Include="Quests\QuestNode_GetHediffFromDefName.cs" />
+    <Compile Include="Quests\QuestNode_Fingerspike.cs" />
+    <Compile Include="Quests\QuestNode_GeneratePawnSimple.cs" />
+    <Compile Include="Quests\QuestNode_GetAnomalyPawnKind.cs" />
+    <Compile Include="Quests\QuestNode_GetLeaderOfFaction.cs" />
+    <Compile Include="Quests\QuestNode_HoraxRitualEffect.cs" />
+    <Compile Include="Quests\QuestNode_Root_PromotionCeremony.cs" />
+    <Compile Include="Quests\QuestNode_GetFactionFromDefName.cs" />
+    <Compile Include="Quests\QuestsIncidentWorker_FleshbeastsAttackWalkin.cs" />
+    <Compile Include="Reward_BestowingCeremonySyndicate.cs" />
+    <Compile Include="StockGenerator_BuyAnomalies.cs" />
+    <Compile Include="SyndicateUtility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Publicize Include="Assembly-CSharp:RimWorld.ITab_Pawn_Gear.SelPawnForGear" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Krafs.Publicizer">
+      <Version>2.3.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Krafs.Rimworld.Ref">
+      <Version>1.6.4523</Version>
+    </PackageReference>
+    <PackageReference Include="Lib.Harmony">
+      <Version>2.3.6</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

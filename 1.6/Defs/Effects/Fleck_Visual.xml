@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>Gha_Regular_Beam_Glow</defName>
+    <altitudeLayer>LightingOverlay</altitudeLayer>
+    <fadeInTime>0.01</fadeInTime>
+    <solidTime>0.105</solidTime>
+    <fadeOutTime>0.04</fadeOutTime>
+    <graphicData>
+      <graphicClass>Graphic_Fleck</graphicClass>
+      <texPath>Things/Mote/PlasmaBeam</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <drawSize>6</drawSize>
+      <color>(1, 1, 1, 0.75)</color>
+    </graphicData>
+  </FleckDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>Gha_Reg_Mote_GraserBeamBase</defName>
+    <thingClass>MoteDualAttached</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.2</fadeInTime>
+      <fadeOutTime>0.3</fadeOutTime>
+      <solidTime>999999</solidTime>
+      <needsMaintenance>True</needsMaintenance>
+      <rotateTowardsTarget>True</rotateTowardsTarget>
+      <scaleToConnectTargets>True</scaleToConnectTargets>
+      <fadeOutUnmaintained>True</fadeOutUnmaintained>
+    </mote>
+    <drawOffscreen>true</drawOffscreen>
+    <graphicData>
+      <texPath>Things/Mote/PlasmaBeam</texPath>
+      <graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
+      <shaderType>MoteBeam</shaderType>
+      <shaderParameters>
+        <_ExtraTexA>/Things/Mote/BeamNoise</_ExtraTexA>
+        <_ExtraTexB>/Things/Mote/PlasmaGlow</_ExtraTexB>
+        <_ScrollSpeedA>-4 </_ScrollSpeedA>
+        <_ScrollSpeedB>3</_ScrollSpeedB>
+        <_Intensity>2</_Intensity>
+      </shaderParameters>
+    </graphicData>
+  </ThingDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>Gha_Void_Beam_Glow</defName>
+    <altitudeLayer>LightingOverlay</altitudeLayer>
+    <fadeInTime>0.01</fadeInTime>
+    <solidTime>0.105</solidTime>
+    <fadeOutTime>0.04</fadeOutTime>
+    <graphicData>
+      <graphicClass>Graphic_Fleck</graphicClass>
+      <texPath>Things/Mote/PlasmaBeam_Void</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <drawSize>6</drawSize>
+      <color>(1, 1, 1, 0.75)</color>
+    </graphicData>
+  </FleckDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>Gha_Void_Mote_GraserBeamBase</defName>
+    <thingClass>MoteDualAttached</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.2</fadeInTime>
+      <fadeOutTime>0.3</fadeOutTime>
+      <solidTime>999999</solidTime>
+      <needsMaintenance>True</needsMaintenance>
+      <rotateTowardsTarget>True</rotateTowardsTarget>
+      <scaleToConnectTargets>True</scaleToConnectTargets>
+      <fadeOutUnmaintained>True</fadeOutUnmaintained>
+    </mote>
+    <drawOffscreen>true</drawOffscreen>
+    <graphicData>
+      <texPath>Things/Mote/PlasmaBeam_Void</texPath>
+      <graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
+      <shaderType>MoteBeam</shaderType>
+      <shaderParameters>
+        <_ExtraTexA>/Things/Mote/BeamNoise_Void</_ExtraTexA>
+        <_ExtraTexB>/Things/Mote/PlasmaGlow_Void</_ExtraTexB>
+        <_ScrollSpeedA>-4 </_ScrollSpeedA>
+        <_ScrollSpeedB>3</_ScrollSpeedB>
+        <_Intensity>2</_Intensity>
+      </shaderParameters>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 1.5 Beam Code -->
+  <!-- <ThingDef ParentName="MoteBase">
+    <defName>Gha_Mote_PlasmaBeamBase</defName>
+    <thingClass>MoteDualAttached</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.2</fadeInTime>
+      <fadeOutTime>0.3</fadeOutTime>
+      <solidTime>999999</solidTime>
+      <needsMaintenance>True</needsMaintenance>
+      <rotateTowardsTarget>True</rotateTowardsTarget>
+      <scaleToConnectTargets>True</scaleToConnectTargets>
+      <fadeOutUnmaintained>True</fadeOutUnmaintained>
+    </mote>
+    <drawOffscreen>true</drawOffscreen>
+    <graphicData>
+      <texPath>Things/Mote/PlasmaBeam</texPath>
+      <graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
+      <shaderType>MoteBeam</shaderType>
+      <shaderParameters>
+        <_ExtraTexA>/Things/Mote/BeamNoise</_ExtraTexA>
+        <_ScrollSpeedA>-4 </_ScrollSpeedA>
+        <_ScrollSpeedB>3</_ScrollSpeedB>
+        <_Intensity>2</_Intensity>
+      </shaderParameters>
+      <color>(1.0, 1.0, 1.0, 1.0)</color>
+    </graphicData>
+  </ThingDef>
+
+  <EffecterDef>
+    <defName>Gha_PlasmaBeam_End</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>Smoke</fleckDef>
+        <chancePerTick>0.4</chancePerTick>
+        <scale>0.6~1.1</scale>
+        <spawnLocType>OnSource</spawnLocType>
+        <absoluteAngle>true</absoluteAngle>
+        <angle>30~70</angle>
+        <speed>0.2~0.35</speed>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <positionRadius>0.1</positionRadius>
+        <moteDef>Mote_SparkThrownFast</moteDef>
+        <spawnLocType>OnSource</spawnLocType>
+        <chancePerTick>0.9</chancePerTick>
+        <speed>3.3~5</speed>
+        <scale>0.1~0.2</scale>
+        <angle>88~104</angle>
+        <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <positionRadius>0.1</positionRadius>
+        <spawnLocType>OnSource</spawnLocType>
+        <fleckDef>Gha_Plasma_Glow</fleckDef>
+        <chancePerTick>0.5</chancePerTick>
+        <scale>0.2</scale>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>Gha_Plasma_Glow</defName>
+    <altitudeLayer>LightingOverlay</altitudeLayer>
+    <fadeInTime>0.01</fadeInTime>
+    <solidTime>0.105</solidTime>
+    <fadeOutTime>0.04</fadeOutTime>
+    <graphicData>
+      <graphicClass>Graphic_Fleck</graphicClass>
+      <texPath>Things/Mote/PlasmaGlow</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <drawSize>6</drawSize>
+      <color>(1, 1, 1, 0.75)</color>
+    </graphicData>
+  </FleckDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>Gha_Fleck_PlasmaSpark</defName>
+    <fadeInTime>0.03</fadeInTime>
+    <solidTime>0.1</solidTime>
+    <fadeOutTime>0.5</fadeOutTime>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <graphicData>
+      <texPath>Things/Mote/SparkThrown</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <drawSize>0.08</drawSize>
+      <color>(251, 145, 48, 255)</color>
+    </graphicData>
+    <acceleration>(0, 0, 0.5)</acceleration>
+    <speedPerTime>0.2~0.5</speedPerTime>
+  </FleckDef> -->
+
+  <!-- Void Beam -->
+  <!-- <ThingDef ParentName="MoteBase">
+    <defName>Gha_Mote_PlasmaBeamBase_Void</defName>
+    <thingClass>MoteDualAttached</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.2</fadeInTime>
+      <fadeOutTime>0.3</fadeOutTime>
+      <solidTime>999999</solidTime>
+      <needsMaintenance>True</needsMaintenance>
+      <rotateTowardsTarget>True</rotateTowardsTarget>
+      <scaleToConnectTargets>True</scaleToConnectTargets>
+      <fadeOutUnmaintained>True</fadeOutUnmaintained>
+    </mote>
+    <drawOffscreen>true</drawOffscreen>
+    <graphicData>
+      <texPath>Things/Mote/PlasmaBeam_Void</texPath>
+      <graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
+      <shaderType>MoteBeam</shaderType>
+      <shaderParameters>
+        <_ExtraTexA>/Things/Mote/BeamNoise_Void</_ExtraTexA>
+        <_ScrollSpeedA>-4 </_ScrollSpeedA>
+        <_ScrollSpeedB>3</_ScrollSpeedB>
+        <_Intensity>2</_Intensity>
+      </shaderParameters>
+    </graphicData>
+  </ThingDef>
+
+  <EffecterDef>
+    <defName>Gha_PlasmaBeam_End_Void</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>Smoke</fleckDef>
+        <chancePerTick>0.4</chancePerTick>
+        <scale>0.6~1.1</scale>
+        <spawnLocType>OnSource</spawnLocType>
+        <absoluteAngle>true</absoluteAngle>
+        <angle>30~70</angle>
+        <speed>0.2~0.35</speed>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <positionRadius>0.1</positionRadius>
+        <moteDef>Mote_SparkThrownFast</moteDef>
+        <spawnLocType>OnSource</spawnLocType>
+        <chancePerTick>0.9</chancePerTick>
+        <speed>3.3~5</speed>
+        <scale>0.1~0.2</scale>
+        <angle>88~104</angle>
+        <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <positionRadius>0.1</positionRadius>
+        <spawnLocType>OnSource</spawnLocType>
+        <fleckDef>Gha_Plasma_Glow_Void</fleckDef>
+        <chancePerTick>0.5</chancePerTick>
+        <scale>0.2</scale>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>Gha_Plasma_Glow_Void</defName>
+    <altitudeLayer>LightingOverlay</altitudeLayer>
+    <fadeInTime>0.01</fadeInTime>
+    <solidTime>0.105</solidTime>
+    <fadeOutTime>0.04</fadeOutTime>
+    <graphicData>
+      <graphicClass>Graphic_Fleck</graphicClass>
+      <texPath>Things/Mote/PlasmaGlow_Void</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <drawSize>6</drawSize>
+      <color>(1, 1, 1, 0.75)</color>
+    </graphicData>
+  </FleckDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>Gha_Fleck_PlasmaSpark_Void</defName>
+    <fadeInTime>0.03</fadeInTime>
+    <solidTime>0.1</solidTime>
+    <fadeOutTime>0.5</fadeOutTime>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <graphicData>
+      <texPath>Things/Mote/SparkThrown</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <drawSize>0.08</drawSize>
+      <color>(251, 145, 48, 255)</color>
+    </graphicData>
+    <acceleration>(0, 0, 0.5)</acceleration>
+    <speedPerTime>0.2~0.5</speedPerTime>
+  </FleckDef>
+  -->
+</Defs>

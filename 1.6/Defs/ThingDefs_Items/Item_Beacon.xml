@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="ResourceBase">
+    <defName>Gha_CrashSiteBeacon</defName>
+    <label>crash site beacon</label>
+    <description>crash site beacon description.\n\nDecrypting the beacon will allow you to pinpoint a noteworthy location.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Special/corrupt_persona</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <category>Item</category>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <tradeability>None</tradeability>
+    <selectable>true</selectable>
+    <statBases>
+      <Mass>0.1</Mass>
+      <Flammability>0</Flammability>
+      <MarketValue>200</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>CompUseableDatacore</compClass>
+        <useJob>ReadDatacore</useJob>
+        <useLabel>Decrypt beacon</useLabel>
+      </li>
+      <li Class="CompProperties_UseEffectPlaySound">
+        <soundOnUsed>DatacoreRead</soundOnUsed>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+      <li Class="CompProperties_UseEffectGiveQuest">
+        <quest>Gha_CrashSite</quest>
+      </li>
+      <li Class="CompProperties_InspectString">
+        <inspectString>Can be decrypted at a research bench.\nSelect a colonist and right-click this to decrypt it.</inspectString>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

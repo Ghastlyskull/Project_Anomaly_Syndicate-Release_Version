@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <RecipeDef MayRequire="Ludeon.RimWorld.Biotech" Name="SyndicateWalkerMediumMechanoidRecipe" ParentName="MediumMechanoidRecipe" Abstract="True">
+        <ingredients Inherit="False">
+          <li>
+            <filter>
+              <thingDefs>
+                <li>Plasteel</li>
+              </thingDefs>
+            </filter>
+            <count>100</count>
+          </li>
+          <li>
+            <filter>
+              <thingDefs>
+                <li>ComponentIndustrial</li>
+              </thingDefs>
+            </filter>
+            <count>6</count>
+          </li>
+          <li>
+            <filter>
+              <thingDefs>
+                <li>SubcoreHigh</li>
+              </thingDefs>
+            </filter>
+            <count>1</count>
+            <filter>
+              <thingDefs>
+                <li>Shard</li>
+              </thingDefs>
+            </filter>
+            <count>1</count>
+            <filter>
+              <thingDefs>
+                <li>Bioferrite</li>
+              </thingDefs>
+            </filter>
+            <count>30</count>
+          </li>
+        </ingredients>
+        <researchPrerequisite>Gha_Research_Mechanoids</researchPrerequisite>
+        <gestationCycles>4</gestationCycles>
+        <recipeUsers>
+          <li>LargeMechGestator</li>
+        </recipeUsers>
+    </RecipeDef>
+    
+    <!-- Vanguard -->
+    <RecipeDef ParentName="SyndicateWalkerMediumMechanoidRecipe">
+        <defName>Vanguard</defName>
+        <label>gestate vanguard</label>
+        <description>Gestate a vanguard mechanoid.</description>
+        <products>
+          <Mech_Gha_Vanguard>1</Mech_Gha_Vanguard>
+        </products>
+        <descriptionHyperlinks>
+          <ThingDef>Mech_Gha_Vanguard</ThingDef>
+        </descriptionHyperlinks>
+    </RecipeDef>
+    <!-- Venatoris -->
+    <RecipeDef ParentName="SyndicateWalkerMediumMechanoidRecipe">
+        <defName>Venatoris</defName>
+        <label>gestate venatoris</label>
+        <description>Gestate a venatoris mechanoid.</description>
+        <products>
+          <Mech_Gha_Venatoris>1</Mech_Gha_Venatoris>
+        </products>
+        <descriptionHyperlinks>
+          <ThingDef>Mech_Gha_Venatoris</ThingDef>
+        </descriptionHyperlinks>
+    </RecipeDef>
+</Defs>
+  

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>Gha_RandomAnomalySpawner</defName>
+    <label>random anomaly spawner</label>
+    <description>spawn a random anomaly.</description>
+    <size>(1,1)</size>
+    <fillPercent>0.50</fillPercent>
+    <rotatable>false</rotatable>
+    <tickerType>Normal</tickerType>
+    <clearBuildingArea>false</clearBuildingArea>
+    <graphicData>
+      <texPath>Things/Item/Special/corrupt_persona</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <building>
+      <isEdifice>false</isEdifice>
+      <canPlaceOverWall>true</canPlaceOverWall>
+    </building>
+    <comps>
+      <li Class="ProjectAnomalySyndicate.CompProperties_RandomAnomalySpawner"/>
+    </comps>
+  </ThingDef>
+  	<ThingDef ParentName="BuildingBase">
+		<defName>Gha_BeaconChance</defName>
+		<label>beacon randomizer</label>
+		<description>spawn a beacon with a chance.</description>
+		<size>(1,1)</size>
+		<fillPercent>0.50</fillPercent>
+		<rotatable>false</rotatable>
+		<tickerType>Normal</tickerType>
+		<clearBuildingArea>false</clearBuildingArea>
+		<graphicData>
+      <texPath>Things/Item/Special/corrupt_persona</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>2000</WorkToBuild>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<building>
+			<isEdifice>false</isEdifice>
+			<canPlaceOverWall>true</canPlaceOverWall>
+		</building>
+		<comps>
+			<li Class="ProjectAnomalySyndicate.CompProperties_ChanceBeaconSpawner">
+        <chance>0.45</chance>
+			</li>
+		</comps>
+	</ThingDef>
+  <ThingDef ParentName="BuildingBase">
+    <defName>Gha_CommsConsole</defName>
+    <label>comms console</label>
+    <description>Hack to gain access to another facility.</description>
+    <altitudeLayer>Building</altitudeLayer>
+    <pathCost>50</pathCost>
+    <blockWind>true</blockWind>
+    <passability>Impassable</passability>
+    <canOverlapZones>true</canOverlapZones>
+    <fillPercent>1.0</fillPercent>
+    <size>(3,2)</size>
+    <graphicData>
+      <texPath>Things/Building/Misc/CommsConsole</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(5,4)</drawSize>
+      <shadowData>
+        <volume>(3.0, 1.0, 3.0)</volume>
+      </shadowData>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <Flammability>1</Flammability>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <killedLeavings>
+      <Steel>100</Steel>
+      <ChunkSlagSteel>4</ChunkSlagSteel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </killedLeavings>
+    <rotatable>true</rotatable>
+    <selectable>true</selectable>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <repairEffect>ConstructMetal</repairEffect>
+    <forceDebugSpawnable>true</forceDebugSpawnable>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,2)</interactionCellOffset>
+    <building>
+      <claimable>false</claimable>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Hackable">
+        <defence>7500</defence>
+        <!-- ~ 3 hours for 10 intellect hacker -->
+        <effectHacking>HackingTerminal</effectHacking>
+      </li>
+      <li Class="ProjectAnomalySyndicate.CompProperties_NextAncientSite"/>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(217,112,33,0)</glowColor>
+      </li>
+    </comps>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <uiIconScale>0.8</uiIconScale>
+  </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>Gha_ObeliskSuppressor</defName>
+    <label>obelisk suppressor</label>
+    <description>A powerful piece of psychic suppression technology, the Obelisk Suppressor was designed to counteract the influence of Horax obelisks. This intricate device channels a controlled psionic field through twin energy conduits, it emits a low-frequency hum that actively suppresses the obelisks from activating</description>
+    <tickerType>Normal</tickerType>
+    <size>(2,2)</size>
+    <graphicData>
+      <drawSize>(2,2)</drawSize>
+      <texPath>Things/Buildings/Misc/Obelisk_Suppressor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>false</rotatable>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.25</fillPercent>
+    <designationCategory>Anomaly</designationCategory>
+    <uiOrder>501</uiOrder>
+    <canOverlapZones>false</canOverlapZones>
+    <thingCategories>
+      <li>BuildingsSpecial</li>
+    </thingCategories>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>6000</WorkToBuild>
+      <Flammability>0.7</Flammability>
+      <Mass>20</Mass>
+    </statBases>
+    <researchPrerequisites>
+      <li>Gha_Research_Suppressor</li>
+    </researchPrerequisites>
+    <costList>
+      <Shard>1</Shard>
+      <Steel>45</Steel>
+      <Bioferrite>40</Bioferrite>
+    </costList>
+    <thingSetMakerTags>
+      <li>RewardStandardCore</li>
+    </thingSetMakerTags>
+    <tradeTags>
+      <li>ExoticBuilding</li>
+    </tradeTags>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <building>
+      <buildingTags>
+        <li>Anomaly</li>
+      </buildingTags>
+    </building>
+    <comps>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>75</basePowerConsumption>
+      </li>
+      <li Class="ProjectAnomalySyndicate.CompProperties_FacilityObeliskSuppressor">
+        <activityDecreasePerTick>10</activityDecreasePerTick>
+        <maxSimultaneous>1</maxSimultaneous>
+        <mustBePlacedAdjacent>true</mustBePlacedAdjacent>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+  </ThingDef>
+</Defs>

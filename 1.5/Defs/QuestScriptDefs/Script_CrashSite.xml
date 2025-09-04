@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <QuestScriptDef>
+    <defName>Gha_CrashSite</defName>
+    <rootSelectionWeight>1.0</rootSelectionWeight>
+    <rootMinPoints>0</rootMinPoints>
+    <autoAccept>true</autoAccept>
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->The [crash] [site]</li>
+        <li>questName->[crash] [site]</li>
+        <li>site->Site</li>
+        <li>site->Ruins</li>
+        <li>site->Wreck</li>
+        <li>site->Debris Field</li>
+        <li>crash->Crash</li>
+        <li>crash->Wreckage</li>
+        <li>crash->Derelict</li>
+        <li>crash->Remains</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <!-- No asker since it can be acquired only using broadcast station -->
+        <li>questDescription->We've deciphered the signal from a corrupted beacon, leading us to an ancient crash site near [map_definite]. The area is filled with massive structures and ancient mech soldiers. \n\nInside the wreckage, there may be valuable technology and relics.</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    <root Class="ProjectAnomalySyndicate.Quests.QuestNode_AnomalyCheckSequence">
+      <nodes>
+        <li Class="QuestNode_SubScript">
+          <def>Util_GetDefaultRewardValueFromPoints</def>
+        </li>
+        <li Class="QuestNode_SubScript">
+          <def>Util_AdjustPointsForDistantFight</def>
+        </li>
+        <li Class="QuestNode_GetMap" />
+        
+        <li Class="QuestNode_GetSiteTile">
+          <storeAs>siteTile</storeAs>
+          <preferCloserTiles>true</preferCloserTiles>
+        </li>
+        <li Class="QuestNode_GetSitePartDefsByTagsAndFaction">
+          <storeAs>sitePartDefs</storeAs>
+          <sitePartsTags>
+            <li>
+              <tag>Gha_CrashSite</tag>
+            </li>
+          </sitePartsTags>
+        </li>
+        <li Class="QuestNode_GetDefaultSitePartsParams">
+          <tile>$siteTile</tile>
+          <faction>$enemyFaction</faction>
+          <sitePartDefs>$sitePartDefs</sitePartDefs>
+          <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+        </li>
+        <li Class="QuestNode_SubScript">
+          <def>Util_GenerateSite</def>
+          <parms>
+            <hiddenSitePartsPossible>true</hiddenSitePartsPossible>
+          </parms>
+        </li>
+
+        <li Class="QuestNode_SpawnWorldObjects">
+          <worldObjects>$site</worldObjects>
+        </li>
+
+        <li Class="QuestNode_NoWorldObject">
+          <worldObject>$site</worldObject>
+          <node Class="QuestNode_End">
+          </node>
+        </li>
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

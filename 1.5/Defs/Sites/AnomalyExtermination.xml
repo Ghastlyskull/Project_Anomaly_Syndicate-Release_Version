@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <SitePartDef>
+    <defName>AnomalyExtermination</defName>
+    <label>anomaly location</label>
+    <description>anomaly location</description>
+    <workerClass>ProjectAnomalySyndicate.Generation.SitePartWorker_AnomalyExtermination</workerClass>
+    <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+    <expandingIconTexture>World/WorldObjects/Expanding/Sites/DistressCall</expandingIconTexture>
+    <approachOrderString>Approach {0}</approachOrderString>
+    <approachingReportString>Approach {0}</approachingReportString>
+    <requiresFaction>false</requiresFaction>
+    <ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
+    <showFactionInInspectString>false</showFactionInInspectString>
+    <applyFactionColorToSiteTexture>false</applyFactionColorToSiteTexture>
+    <arrivedLetterDef>NeutralEvent</arrivedLetterDef>
+    <wantsThreatPoints>true</wantsThreatPoints>
+    <disallowsAutomaticDetectionTimerStart>true</disallowsAutomaticDetectionTimerStart>
+    <considerEnteringAsAttack>false</considerEnteringAsAttack>
+    <tags>
+      <li>AnomalyExtermination</li>
+    </tags>
+
+  </SitePartDef>
+
+  <GenStepDef>
+    <defName>AnomalyExterminationRuins</defName>
+    <linkWithSite>AnomalyExtermination</linkWithSite>
+    <order>1600</order>
+    <genStep Class="GenStep_Outpost">
+      <settlementDontGeneratePawns>true</settlementDontGeneratePawns>
+    </genStep>
+  </GenStepDef>
+  <GenStepDef>
+    <defName>AnomalyExterminationDestroyDoors</defName>
+    <linkWithSite>AnomalyExtermination</linkWithSite>
+    <order>1601</order>
+    <genStep Class="ProjectAnomalySyndicate.Generation.GenStep_DestroyDoors"/>
+
+  </GenStepDef>
+
+
+  <GenStepDef>
+    <defName>AnomalyExterminationDamageWalls</defName>
+    <linkWithSite>AnomalyExtermination</linkWithSite>
+    <order>1602</order>
+    <genStep Class="ProjectAnomalySyndicate.Generation.GenStep_DamageWalls"/>
+
+  </GenStepDef>
+
+</Defs>

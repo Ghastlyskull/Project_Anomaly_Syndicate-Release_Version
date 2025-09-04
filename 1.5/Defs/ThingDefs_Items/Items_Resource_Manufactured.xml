@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="ResourceBase">
+        <defName>MindWakeSerum</defName>
+        <label>mind wake serum</label>
+        <description>A mixture of deadlife dust and advanced biochemicals course through this creature’s veins that temporarily restores mental clarity in ghouls. Once administered, it reactivates dormant neural pathways, allowing ghouls to regain full cognitive function for a short period. Under its effects, ghouls experience a brief return to their former selves. However, as the serum wears off, they gradually slip back into their instinct-driven state.</description>
+        <graphicData>
+          <texPath>Things/Item/Serum/mind_wake_serum</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>0.8</drawSize>
+        </graphicData>
+        <thingClass>ThingWithComps</thingClass>
+        <useHitPoints>true</useHitPoints>
+        <statBases>
+          <MaxHitPoints>60</MaxHitPoints>
+          <MarketValue>60</MarketValue>
+          <Mass>0.5</Mass>
+          <Flammability>0.7</Flammability>
+        </statBases>
+        <tradeTags>
+          <li>Serum</li>
+        </tradeTags>
+        <tradeability>Sellable</tradeability>
+        <stackLimit>10</stackLimit>
+        <thingCategories>
+          <li>Drugs</li>
+        </thingCategories>
+        <costList>
+          <Meat_Twisted>10</Meat_Twisted>
+          <Bioferrite>40</Bioferrite>
+          <Shard>1</Shard>
+        </costList>
+        <recipeMaker>
+          <workAmount>840</workAmount>
+          <researchPrerequisite>GhoulResurrection</researchPrerequisite>
+          <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+          <workSkill>Crafting</workSkill>
+          <recipeUsers>
+            <li>SerumCentrifuge</li>
+          </recipeUsers>
+        </recipeMaker>
+        <comps>
+          <li Class="CompProperties_Usable">
+            <useJob>UseItem</useJob>
+            <useLabel>Use {0_label}</useLabel>
+            <useDuration>0</useDuration>
+            <showUseGizmo>true</showUseGizmo>
+          </li>
+          <li Class="CompProperties_Targetable">
+            <compClass>ProjectAnomalySyndicate.CompTargetable_SingleMutant</compClass>
+            
+          </li>
+          <li Class="ProjectAnomalySyndicate.CompProperties_TargetEffectMindwake">
+            <withSideEffects>false</withSideEffects>
+            <addsHediff>MindWakeSerum_Awakening</addsHediff>
+          </li>
+        </comps>
+      </ThingDef>
+</Defs>

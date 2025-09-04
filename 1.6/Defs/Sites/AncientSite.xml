@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <SitePartDef>
+    <defName>AncientSite</defName>
+    <label>ancient site</label>
+    <description>ancient site</description>
+    <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+    <expandingIconTexture>World/WorldObjects/Expanding/Sites/DistressCall</expandingIconTexture>
+    <disallowsAutomaticDetectionTimerStart>true</disallowsAutomaticDetectionTimerStart>
+    <tags>
+      <li>Gha_AncientSite</li>
+    </tags>
+
+  </SitePartDef>
+  <GenStepDef>
+    <defName>AncientSite</defName>
+    <linkWithSite>AncientSite</linkWithSite>
+    <order>450</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <filthTypes>
+        <li>Filth_Dirt</li>
+        <li>Filth_Trash</li>
+        <li>Filth_RubbleBuilding</li>
+      </filthTypes>
+      <symbolResolvers>
+        <li>kcsg_destroyrefuelablelightsource</li>
+      </symbolResolvers>
+      <preventBridgeable>true</preventBridgeable>
+      <structureLayoutDefs>
+        <li>AbandonedSyndicateFacility_Flesh_A</li>
+        <li>MonolithandHolding</li>
+        <li>Gha_AbandonedFacilityObelisks_A</li>
+        <li>AbandonedHoldingFacility_A</li>
+      </structureLayoutDefs>
+      <scatterThings>
+        <li>Gold</li>
+        <li>Silver</li>
+      </scatterThings>
+      <scatterChance>0.02</scatterChance>
+    </genStep>
+  </GenStepDef>
+</Defs>

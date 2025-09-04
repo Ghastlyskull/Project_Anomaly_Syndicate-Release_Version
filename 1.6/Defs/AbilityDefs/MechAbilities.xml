@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <AbilityDef>
+        <defName>Vanguard_Beam_Overcharge</defName>
+        <label>beam overchage</label>
+        <description>Fire a powerful volatile sphere of plasma at a target</description>
+        <iconPath>UI/Abilities/Beam_Overcharge</iconPath>
+        <cooldownTicksRange>5200</cooldownTicksRange>
+        <displayOrder>200</displayOrder>
+        <aiCanUse>true</aiCanUse>
+        <verbProperties>
+          <verbClass>Verb_CastAbility</verbClass>
+          <range>20.5</range>
+          <warmupTime>1.5</warmupTime>
+          <soundCast>Sound_Plasma_OverCharge</soundCast>
+        </verbProperties>
+        <comps>
+          <li Class="CompProperties_AbilityLaunchProjectile">
+            <projectileDef>Bullet_Gha_VanguardPlasmaRifle</projectileDef>
+          </li>
+        </comps>
+    </AbilityDef>
+
+<ThingDef ParentName="BaseBullet">
+  <defName>Bullet_Gha_VanguardPlasmaRifle</defName>
+  <label>plasma shot</label>
+  <thingClass>Projectile_Explosive</thingClass>
+  <category>Projectile</category>
+  <graphicData>
+    <texPath>Things/Projectiles/Plasma_OverCharge</texPath>
+    <graphicClass>Graphic_Single</graphicClass>
+  </graphicData>
+  <projectile>
+    <damageDef>Vaporize</damageDef>
+    <damageAmountBase>50</damageAmountBase>
+    <explosionRadius>1.5</explosionRadius>
+    <screenShakeFactor>0.5</screenShakeFactor>
+    <speed>45</speed>
+  </projectile>
+</ThingDef>
+
+<!--Void-->
+<AbilityDef>
+    <defName>Void_Vanguard_Beam_Overcharge</defName>
+    <label>corrupted beam overchage</label>
+    <description>Fire a powerful volatile void sphere of plasma at a target</description>
+    <iconPath>UI/Abilities/Beam_Overcharge</iconPath>
+    <cooldownTicksRange>5200</cooldownTicksRange>
+    <displayOrder>200</displayOrder>
+    <aiCanUse>true</aiCanUse>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>20.5</range>
+      <warmupTime>1.5</warmupTime>
+      <soundCast>Sound_Plasma_OverCharge</soundCast>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>Bullet_Gha_VoidVanguardPlasmaRifle</projectileDef>
+      </li>
+    </comps>
+</AbilityDef>
+
+<ThingDef ParentName="BaseBullet">
+  <defName>Bullet_Gha_VoidVanguardPlasmaRifle</defName>
+  <label>plasma shot</label>
+  <thingClass>Projectile_Explosive</thingClass>
+  <category>Projectile</category>
+  <graphicData>
+    <texPath>Things/Projectiles/Plasma_VoidOverCharge</texPath>
+    <graphicClass>Graphic_Single</graphicClass>
+  </graphicData>
+  <projectile>
+    <damageDef>NociosphereVaporize</damageDef>
+    <damageAmountBase>60</damageAmountBase>
+    <explosionRadius>1.5</explosionRadius>
+    <screenShakeFactor>0.5</screenShakeFactor>
+    <speed>35</speed>
+  </projectile>
+</ThingDef>
+</Defs>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- void reaver -->
+    <ThingDef MayRequire="Ludeon.RimWorld.Biotech" ParentName="LancerMechanoidWalker">
+      <defName>Mech_Gha_Horax_Vanguard</defName>
+      <label>void reaver</label>
+      <description>Medium-sized ranged unit, formerly a disciplined Syndicate war machine. Its plasma rifle has been twisted into a chaotic weapon, firing unstable red beams that burn with Horax influence.</description>
+      <race>
+        <lifeStageAges Inherit="False">
+          <li>
+            <def>MechanoidFullyFormed</def>
+            <minAge>0</minAge>
+            <soundWounded>Pawn_Mech_Tesseron_Wounded</soundWounded>
+            <soundDeath>Pawn_Mech_Tesseron_Death</soundDeath>
+            <soundCall>Pawn_Mech_Tesseron_Call</soundCall>
+          </li>
+          <li>
+            <def>MechanoidFullyFormed</def>
+            <minAge>100</minAge>
+            <soundWounded>Pawn_Mech_Tesseron_Wounded</soundWounded>
+            <soundDeath>Pawn_Mech_Tesseron_Death</soundDeath>
+            <soundCall>Pawn_Mech_Tesseron_Call</soundCall>
+          </li>
+        </lifeStageAges>
+        <detritusLeavings>
+          <li>
+            <def>ChunkMechanoidSlag</def>
+            <texOverrideIndex>11</texOverrideIndex>
+            <spawnChance>0.1</spawnChance>
+          </li>
+          <li>
+            <def>ChunkMechanoidSlag</def>
+            <texOverrideIndex>1</texOverrideIndex>
+            <spawnChance>0.1</spawnChance>
+          </li>
+        </detritusLeavings>
+      </race>
+      <statBases>
+        <BandwidthCost>4</BandwidthCost>
+        <ControlTakingTime>18</ControlTakingTime>
+        <MoveSpeed>5</MoveSpeed>
+      </statBases>
+    </ThingDef>
+    
+    <PawnKindDef MayRequire="Ludeon.RimWorld.Biotech" ParentName="BaseMechanoidKind">
+      <defName>Mech_Gha_Horax_Vanguard</defName>
+      <label>void reaver</label>
+      <race>Mech_Gha_Vanguard</race>
+      <combatPower>450</combatPower>
+      <defaultFactionDef>Entities</defaultFactionDef>
+      <overrideDebugActionCategory>Entity</overrideDebugActionCategory>
+      <allowInMechClusters>false</allowInMechClusters>
+      <lifeStages>
+        <li MayRequire="Ludeon.RimWorld.Biotech">
+          <bodyGraphicData>
+            <texPath>Things/Pawn/Mechanoid/HoraxVanguard/HoraxVanguard</texPath>
+            <maskPath>Things/Pawn/Mechanoid/HoraxVanguard/AllegianceOverlays/Mech_HoraxVanguard</maskPath>
+            <shaderType>CutoutWithOverlay</shaderType>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>2.3</drawSize>
+          </bodyGraphicData>
+        </li>
+        <li>
+          <bodyGraphicData>
+            <texPath>Things/Pawn/Mechanoid/HoraxVanguard/HoraxVanguard</texPath>
+            <maskPath>Things/Pawn/Mechanoid/HoraxVanguard/AllegianceOverlays/Mech_HoraxVanguard</maskPath>
+            <shaderType>CutoutWithOverlay</shaderType>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>2.3</drawSize>
+          </bodyGraphicData>
+        </li>
+      </lifeStages>
+      <weaponMoney>9999~9999</weaponMoney>
+      <weaponTags>
+        <li></li>
+      </weaponTags>
+      <fixedInventory>
+        <Gun_Gha_VoidVanguardPlasmaRifle/>
+      </fixedInventory>
+      <techHediffsChance>1</techHediffsChance>
+      <techHediffsMoney>9999~9999</techHediffsMoney>
+    </PawnKindDef>
+
+    <!--Needlefiend-->
+    <ThingDef ParentName="LancerMechanoidWalker">
+        <defName>Mech_Gha_Horax_Venatoris</defName>
+        <label>needlefiend</label>
+        <description>Once engineered to capture and suppress threats, the Needlefiend has become a sadistic tormentor. Corrupted Needle Launchers no longer subdue, but tear through flesh to maximize pain.</description>
+        <race>
+          <lifeStageAges Inherit="False">
+            <li>
+              <def>MechanoidFullyFormed</def>
+              <minAge>0</minAge>
+              <soundWounded>Pawn_Mech_Tesseron_Wounded</soundWounded>
+              <soundDeath>Pawn_Mech_Tesseron_Death</soundDeath>
+              <soundCall>Pawn_Mech_Tesseron_Call</soundCall>
+            </li>
+            <li>
+              <def>MechanoidFullyFormed</def>
+              <minAge>100</minAge>
+              <soundWounded>Pawn_Mech_Tesseron_Wounded</soundWounded>
+              <soundDeath>Pawn_Mech_Tesseron_Death</soundDeath>
+              <soundCall>Pawn_Mech_Tesseron_Call</soundCall>
+            </li>
+          </lifeStageAges>
+          <detritusLeavings>
+            <li>
+              <def>ChunkMechanoidSlag</def>
+              <texOverrideIndex>11</texOverrideIndex>
+              <spawnChance>0.1</spawnChance>
+            </li>
+            <li>
+              <def>ChunkMechanoidSlag</def>
+              <texOverrideIndex>1</texOverrideIndex>
+              <spawnChance>0.1</spawnChance>
+            </li>
+          </detritusLeavings>
+        </race>
+        <statBases>
+          <BandwidthCost>4</BandwidthCost>
+          <ControlTakingTime>18</ControlTakingTime>
+          <MoveSpeed>5</MoveSpeed>
+        </statBases>
+    </ThingDef>
+    
+    <PawnKindDef ParentName="BaseMechanoidKind">
+        <defName>Mech_Gha_Horax_Venatoris</defName>
+        <label>needlefiend</label>
+        <race>Mech_Gha_Venatoris</race>
+        <combatPower>350</combatPower>
+        <allowInMechClusters>false</allowInMechClusters>
+        <defaultFactionDef>Entities</defaultFactionDef>
+        <overrideDebugActionCategory>Entity</overrideDebugActionCategory>
+        <lifeStages>
+          <li>
+            <bodyGraphicData MayRequire="Ludeon.RimWorld.Biotech">
+              <texPath>Things/Pawn/Mechanoid/HoraxVenatoris/HoraxVenatoris</texPath>
+              <maskPath>Things/Pawn/Mechanoid/HoraxVenatoris/AllegianceOverlays/Mech_HoraxVenatoris</maskPath>
+              <shaderType>CutoutWithOverlay</shaderType>
+              <graphicClass>Graphic_Multi</graphicClass>
+              <drawSize>2</drawSize>
+            </bodyGraphicData>
+          </li>
+          <li>
+            <bodyGraphicData>
+              <texPath>Things/Pawn/Mechanoid/HoraxVenatoris/HoraxVenatoris</texPath>
+              <maskPath>Things/Pawn/Mechanoid/HoraxVenatoris/AllegianceOverlays/Mech_HoraxVenatoris</maskPath>
+              <shaderType>CutoutWithOverlay</shaderType>
+              <graphicClass>Graphic_Multi</graphicClass>
+              <drawSize>2</drawSize>
+            </bodyGraphicData>
+          </li>
+        </lifeStages>
+        <weaponMoney>9999~9999</weaponMoney>
+        <fixedInventory>
+          <Gha_Gun_VoidNeedler/>
+        </fixedInventory>
+        <weaponTags>
+          <li></li>
+        </weaponTags>
+        <techHediffsChance>1</techHediffsChance>
+        <techHediffsMoney>9999~9999</techHediffsMoney>
+    </PawnKindDef>
+
+    <!-- Void Sentinel -->
+    <ThingDef ParentName="BaseMechanoidWalker">
+        <defName>Mech_Gha_Horax_Bulwark</defName>
+        <label>void sentinel</label>
+        <description>Once a stalwart defender of Syndicate strongholds, this heavy mechanoid has been warped by Horax corruption. Its shield has been enhanced and its plasma broadsword burns with unstable crimson energy.</description>
+        <statBases>
+          <MarketValue>1600</MarketValue>
+          <MoveSpeed>3.2</MoveSpeed>
+          <EnergyShieldRechargeRate>0.25</EnergyShieldRechargeRate>
+          <EnergyShieldEnergyMax>1.5</EnergyShieldEnergyMax>
+          <BandwidthCost>5</BandwidthCost>
+          <ControlTakingTime>18</ControlTakingTime>
+          <EMPResistance>0.8</EMPResistance>
+          <ArmorRating_Blunt>0.40</ArmorRating_Blunt>
+          <ArmorRating_Sharp>0.75</ArmorRating_Sharp>
+        </statBases>
+        <race>
+          <body>Apocriton</body>
+          <mechWeightClass>UltraHeavy</mechWeightClass>
+          <lifeStageAges Inherit="False">
+            <li>
+              <def>MechanoidFullyFormed</def>
+              <minAge>0</minAge>
+              <soundWounded>Pawn_Mech_Apocriton_Wounded</soundWounded>
+              <soundAngry>Pawn_Mech_Apocriton_Call</soundAngry>
+              <soundDeath>Pawn_Mech_Apocriton_Death</soundDeath>
+              <soundCall>Pawn_Mech_Apocriton_Call</soundCall>
+            </li>
+            <li>
+              <def>MechanoidFullyFormed</def>
+              <minAge>100</minAge>
+              <soundWounded>Pawn_Mech_Apocriton_Wounded</soundWounded>
+              <soundAngry>Pawn_Mech_Apocriton_Call</soundAngry>
+              <soundDeath>Pawn_Mech_Apocriton_Death</soundDeath>
+              <soundCall>Pawn_Mech_Apocriton_Call</soundCall>
+            </li>
+          </lifeStageAges>
+          <baseHealthScale>5.5</baseHealthScale>
+          <detritusLeavings>
+            <li>
+              <def>ChunkMechanoidSlag</def>
+              <texOverrideIndex>15</texOverrideIndex>
+              <spawnChance>0.1</spawnChance>
+            </li>
+            <li>
+              <def>ChunkMechanoidSlag</def>
+              <texOverrideIndex>8</texOverrideIndex>
+              <spawnChance>0.1</spawnChance>
+            </li>
+            <li>
+              <def>ChunkMechanoidSlag</def>
+              <texOverrideIndex>13</texOverrideIndex>
+              <spawnChance>0.1</spawnChance>
+            </li>
+          </detritusLeavings>
+        </race>
+        <tools>
+          <li>
+            <label>head</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>2.6</cooldownTime>
+            <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+            <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+          </li>
+        </tools>
+        <killedLeavingsPlayerHostile>
+          <NanostructuringChip>1</NanostructuringChip>
+        </killedLeavingsPlayerHostile>
+        <comps>
+            <li Class="CompProperties_ProjectileInterceptor">
+                <radius>1.9</radius>
+                <interceptGroundProjectiles>true</interceptGroundProjectiles>
+                <color>(0.4, 0.4, 0.4)</color>
+                <reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
+                <activeSound>BulletShield_Ambience</activeSound>
+                <hitPoints>400</hitPoints>
+                <hitPointsRestoreInstantlyAfterCharge>true</hitPointsRestoreInstantlyAfterCharge>
+                <chargeDurationTicks>1800</chargeDurationTicks><!-- 30s -->
+                <rechargeHitPointsIntervalTicks>120</rechargeHitPointsIntervalTicks>
+                <minIdleAlpha>0.2</minIdleAlpha>
+                <drawWithNoSelection>True</drawWithNoSelection>
+                <disarmedByEmpForTicks>1500</disarmedByEmpForTicks>
+                <gizmoTipKey>ProjectileInterceptorTip</gizmoTipKey>
+              </li>
+        </comps>
+    </ThingDef>
+    
+    <PawnKindDef ParentName="BaseMechanoidKind">
+        <defName>Mech_Gha_Horax_Bulwark</defName>
+        <label>void sentinel</label>
+        <race>Mech_Gha_Horax_Bulwark</race>
+        <combatPower>650</combatPower>
+        <maxPerGroup>3</maxPerGroup>
+        <isBoss>False</isBoss>
+        <allowInMechClusters>false</allowInMechClusters>
+        <defaultFactionDef>Entities</defaultFactionDef>
+        <overrideDebugActionCategory>Entity</overrideDebugActionCategory>
+        <lifeStages>
+          <li>
+            <bodyGraphicData>
+              <texPath>Things/Pawn/Mechanoid/HoraxBulwark/HoraxBulwark</texPath>
+              <maskPath>Things/Pawn/Mechanoid/HoraxBulwark/AllegianceOverlays/Mech_HoraxBulwark</maskPath>
+              <shaderType>CutoutWithOverlay</shaderType>
+              <graphicClass>Graphic_Multi</graphicClass>
+              <drawSize>3</drawSize>
+            </bodyGraphicData>
+          </li>
+          <li>
+            <bodyGraphicData>
+              <texPath>Things/Pawn/Mechanoid/HoraxBulwark/HoraxBulwark</texPath>
+              <maskPath>Things/Pawn/Mechanoid/HoraxBulwark/AllegianceOverlays/Mech_HoraxBulwark</maskPath>
+              <shaderType>CutoutWithOverlay</shaderType>
+              <graphicClass>Graphic_Multi</graphicClass>
+              <drawSize>3</drawSize>
+            </bodyGraphicData>
+          </li>
+        </lifeStages>
+        <weaponMoney>9999~9999</weaponMoney>
+        <fixedInventory>
+          <Gha_MeleeWeapon_VoidPlasmaBroadSword/>
+        </fixedInventory>
+        <weaponTags>
+          <li></li>
+        </weaponTags>
+        <techHediffsChance>1</techHediffsChance>
+        <techHediffsMoney>9999~9999</techHediffsMoney>
+        <skipResistant>true</skipResistant>
+    </PawnKindDef>
+</Defs>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+    <!--Darkotech Walls: Credit to Shadowcelebi for the artwork-->
+    <ThingDef ParentName="BuildingBase">
+        <defName>darkarchotechwall</defName>
+        <label>dark archotech wall</label>
+        <description>A solid mass of dark metal. Its surface is smooth with a red glow in the resesses. The material feels wet and oily to the touch but leaves no residue. It is impervious to damage.</description>
+        <useHitPoints>false</useHitPoints>
+        <uiIconPath>Things/Buildings/Linked/dark_archotech_wall</uiIconPath>
+        <graphicData>
+          <texPath>Things/Buildings/Linked/dark_archotech_wall</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <linkType>CornerFiller</linkType>
+          <linkFlags>
+            <li>Wall</li>
+            <li>Rock</li>
+          </linkFlags>
+          <damageData>
+            <cornerTL>Damage/Corner</cornerTL>
+            <cornerTR>Damage/Corner</cornerTR>
+            <cornerBL>Damage/Corner</cornerBL>
+            <cornerBR>Damage/Corner</cornerBR>
+            <edgeTop>Damage/Edge</edgeTop>
+            <edgeBot>Damage/Edge</edgeBot>
+            <edgeLeft>Damage/Edge</edgeLeft>
+            <edgeRight>Damage/Edge</edgeRight>
+          </damageData>
+        </graphicData>
+        <statBases>
+          <Flammability>0</Flammability>
+        </statBases>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>Impassable</passability>
+        <blockWind>true</blockWind>
+        <castEdgeShadows>true</castEdgeShadows>
+        <fillPercent>1</fillPercent>
+        <coversFloor>true</coversFloor>
+        <holdsRoof>true</holdsRoof>
+        <staticSunShadowHeight>1.0</staticSunShadowHeight>
+        <blockLight>true</blockLight>
+        <rotatable>false</rotatable>
+        <selectable>true</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <canOverlapZones>false</canOverlapZones>
+        <mineable>false</mineable>
+        <building>
+          <isInert>true</isInert>
+          <repairable>false</repairable>
+          <claimable>false</claimable>
+          <canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
+          <deconstructible>false</deconstructible>
+          <isTargetable>false</isTargetable>
+          <supportsWallAttachments>true</supportsWallAttachments>
+        </building>
+      </ThingDef>
+
+      <ThingDef ParentName="BuildingBase">
+        <defName>Gha_Wall_Atlas_Glass</defName>
+        <label>ancient glass wall</label>
+        <description>A long-aged wall composed of fragile glass and metal frames.</description>
+        <graphicData>
+          <texPath>Things/Buildings/Linked/Wall_Atlas_Glass</texPath>
+	        <shaderType>CutoutComplex</shaderType>
+          <graphicClass>Graphic_Single</graphicClass>
+          <linkType>CornerFiller</linkType>
+          <linkFlags>
+            <li>Wall</li>
+            <li>Rock</li>
+          </linkFlags>
+          <damageData>
+            <rect>(0.35,0.1,0.3,0.7)</rect>
+            <cornerTL>Damage/Corner</cornerTL>
+            <cornerTR>Damage/Corner</cornerTR>
+            <cornerBL>Damage/Corner</cornerBL>
+            <cornerBR>Damage/Corner</cornerBR>
+            <edgeTop>Damage/Edge</edgeTop>
+            <edgeBot>Damage/Edge</edgeBot>
+            <edgeLeft>Damage/Edge</edgeLeft>
+            <edgeRight>Damage/Edge</edgeRight>
+          </damageData>
+        </graphicData>
+        <useHitPoints>True</useHitPoints>
+        <statBases>
+          <Flammability>0</Flammability>
+          <MaxHitPoints>200</MaxHitPoints>
+        </statBases>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>Impassable</passability>
+        <blockWind>true</blockWind>
+        <castEdgeShadows>true</castEdgeShadows>
+        <fillPercent>1</fillPercent>
+        <coversFloor>true</coversFloor>
+        <holdsRoof>true</holdsRoof>
+        <staticSunShadowHeight>1.0</staticSunShadowHeight>
+        <blockLight>true</blockLight>
+        <rotatable>false</rotatable>
+        <selectable>true</selectable>
+        <neverMultiSelect>true</neverMultiSelect>
+        <canOverlapZones>false</canOverlapZones>
+        <mineable>false</mineable>
+        <building>
+          <isInert>true</isInert>
+          <repairable>false</repairable>
+          <claimable>false</claimable>
+          <canBuildNonEdificesUnder>false</canBuildNonEdificesUnder>
+          <deconstructible>false</deconstructible>
+          <isTargetable>false</isTargetable>
+          <supportsWallAttachments>true</supportsWallAttachments>
+        </building>
+      </ThingDef>
+</Defs>

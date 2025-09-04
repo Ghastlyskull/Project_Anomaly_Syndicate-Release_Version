@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================== Big threats ==============================-->
+  <IncidentDef ParentName="EntityAttackBase">
+    <defName>FleshbeastsAttackWalkin</defName>
+    <label>fleshbeast attack</label>
+    <workerClass>ProjectAnomalySyndicate.Quests.QuestsIncidentWorker_FleshbeastsAttackWalkin</workerClass>
+    <baseChance>2</baseChance>
+    <minAnomalyThreatLevel>1</minAnomalyThreatLevel>
+    <tale>FleshbeastsAttackWalkin</tale>
+  </IncidentDef>
+
+</Defs>

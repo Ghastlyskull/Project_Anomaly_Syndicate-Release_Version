@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef Name="DataSlateBase" ParentName="ResourceBase" Abstract="True">
+        <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.</description>
+        <graphicData>
+          <texPath>Things/Item/Special/Gha_DataSlate</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>Metal_Drop</soundInteract>
+        <soundDrop>Metal_Drop</soundDrop>
+        <stackLimit>1</stackLimit>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <useHitPoints>true</useHitPoints>
+        <statBases>
+          <MarketValue>700</MarketValue>
+          <MaxHitPoints>100</MaxHitPoints>
+          <Mass>1.5</Mass>
+          <Flammability>0</Flammability>
+        </statBases>
+        <intricate>true</intricate>
+        <thingCategories>
+          <li>Manufactured</li>
+        </thingCategories>
+        <techLevel>Ultra</techLevel>
+        <tradeTags>
+          <li>ExoticMisc</li>
+        </tradeTags>
+      </ThingDef>
+
+      <ThingDef ParentName="DataSlateBase">
+        <defName>Gha_WeaponDataChip</defName>
+        <label>weapon data chip</label>
+        <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.\n\nThis scroll appears to be contain knowledge on complex dwarven constructions and designs, like core drills, dwarven turrets and even automatons.</description>
+        <graphicData>
+            <texPath>Things/Item/Special/Gha_DataChip_Weapons</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+          <MarketValue>800</MarketValue>
+          <MaxHitPoints>100</MaxHitPoints>
+          <Mass>1.5</Mass>
+          <Flammability>0</Flammability>
+        </statBases>
+        <tradeTags>
+          <li>ExoticMisc</li>
+        </tradeTags>
+        <comps>
+          <li Class="CompProperties_CompAnalyzableUnlockResearch">
+            <analysisID>40774901</analysisID>
+            <requiresMechanitor>false</requiresMechanitor>
+    
+            <!-- Analyzable -->
+    
+            <analysisDurationHours>0.5</analysisDurationHours>
+            <destroyedOnAnalyzed>false</destroyedOnAnalyzed>
+            <completedLetterLabel>Data Chip deciphered: {RESEARCH} unlocked</completedLetterLabel>
+            <completedLetter>By deciphering and translating the ancient data-chip, {PAWN_labelShort} has acquired the insight needed for the research project(s) {RESEARCH}.\n\nYour researchers can now use research benches to begin researching how to actually use the technology.</completedLetter>
+            <completedLetterDef>PositiveEvent</completedLetterDef>
+    
+            <!-- Interactable -->
+    
+            <activateTexPath>UI/Icons/Study</activateTexPath>
+    
+            <activateLabelString>Analyze...</activateLabelString>
+            <activateDescString>Analyze the data-chip.</activateDescString>
+            <jobString>Analyze data-chip.</jobString>
+            <guiLabelString>Choose who should analyze this</guiLabelString>
+            <inspectString>Can be analyzed by a colonist.</inspectString>
+    
+            <targetingParameters>
+              <canTargetBuildings>false</canTargetBuildings>
+              <canTargetAnimals>false</canTargetAnimals>
+              <canTargetMechs>false</canTargetMechs>
+              <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+            </targetingParameters>
+          </li>
+        </comps>
+      </ThingDef>
+
+      <ThingDef ParentName="DataSlateBase">
+        <defName>Gha_BuildingDataChip</defName>
+        <label>construction data chip</label>
+        <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.\n\nThis scroll appears to be contain knowledge on complex dwarven constructions and designs, like core drills, dwarven turrets and even automatons.</description>
+        <graphicData>
+            <texPath>Things/Item/Special/Gha_DataChip_Building</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+          <MarketValue>800</MarketValue>
+          <MaxHitPoints>100</MaxHitPoints>
+          <Mass>1.5</Mass>
+          <Flammability>0</Flammability>
+        </statBases>
+        <tradeTags>
+          <li>ExoticMisc</li>
+        </tradeTags>
+        <comps>
+          <li Class="CompProperties_CompAnalyzableUnlockResearch">
+            <analysisID>40774902</analysisID>
+            <requiresMechanitor>false</requiresMechanitor>
+    
+            <!-- Analyzable -->
+    
+            <analysisDurationHours>0.5</analysisDurationHours>
+            <destroyedOnAnalyzed>false</destroyedOnAnalyzed>
+            <completedLetterLabel>Data Chip deciphered: {RESEARCH} unlocked</completedLetterLabel>
+            <completedLetter>By deciphering and translating the ancient data-chip, {PAWN_labelShort} has acquired the insight needed for the research project(s) {RESEARCH}.\n\nYour researchers can now use research benches to begin researching how to actually use the technology.</completedLetter>
+            <completedLetterDef>PositiveEvent</completedLetterDef>
+    
+            <!-- Interactable -->
+    
+            <activateTexPath>UI/Icons/Study</activateTexPath>
+    
+            <activateLabelString>Analyze...</activateLabelString>
+            <activateDescString>Analyze the data-chip.</activateDescString>
+            <jobString>Analyze data-chip.</jobString>
+            <guiLabelString>Choose who should analyze this</guiLabelString>
+            <inspectString>Can be analyzed by a colonist.</inspectString>
+    
+            <targetingParameters>
+              <canTargetBuildings>false</canTargetBuildings>
+              <canTargetAnimals>false</canTargetAnimals>
+              <canTargetMechs>false</canTargetMechs>
+              <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+            </targetingParameters>
+          </li>
+        </comps>
+      </ThingDef>
+
+      <ThingDef ParentName="DataSlateBase">
+        <defName>Gha_SerumDataChip</defName>
+        <label>anomaly data chip</label>
+        <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.\n\nThis scroll appears to be contain knowledge on complex dwarven constructions and designs, like core drills, dwarven turrets and even automatons.</description>
+        <graphicData>
+            <texPath>Things/Item/Special/Gha_DataChip_Serum</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+          <MarketValue>800</MarketValue>
+          <MaxHitPoints>100</MaxHitPoints>
+          <Mass>1.5</Mass>
+          <Flammability>0</Flammability>
+        </statBases>
+        <tradeTags>
+          <li>ExoticMisc</li>
+        </tradeTags>
+        <comps>
+          <li Class="CompProperties_CompAnalyzableUnlockResearch">
+            <analysisID>40774903</analysisID>
+            <requiresMechanitor>false</requiresMechanitor>
+    
+            <!-- Analyzable -->
+    
+            <analysisDurationHours>0.5</analysisDurationHours>
+            <destroyedOnAnalyzed>false</destroyedOnAnalyzed>
+            <completedLetterLabel>Data Chip deciphered: {RESEARCH} unlocked</completedLetterLabel>
+            <completedLetter>By deciphering and translating the ancient data-chip, {PAWN_labelShort} has acquired the insight needed for the research project(s) {RESEARCH}.\n\nYour researchers can now use research benches to begin researching how to actually use the technology.</completedLetter>
+            <completedLetterDef>PositiveEvent</completedLetterDef>
+    
+            <!-- Interactable -->
+    
+            <activateTexPath>UI/Icons/Study</activateTexPath>
+    
+            <activateLabelString>Analyze...</activateLabelString>
+            <activateDescString>Analyze the data-chip.</activateDescString>
+            <jobString>Analyze data-chip.</jobString>
+            <guiLabelString>Choose who should analyze this</guiLabelString>
+            <inspectString>Can be analyzed by a colonist.</inspectString>
+    
+            <targetingParameters>
+              <canTargetBuildings>false</canTargetBuildings>
+              <canTargetAnimals>false</canTargetAnimals>
+              <canTargetMechs>false</canTargetMechs>
+              <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+            </targetingParameters>
+          </li>
+        </comps>
+      </ThingDef>
+
+      <ThingDef ParentName="DataSlateBase">
+        <defName>Gha_ArmorDataChip</defName>
+        <label>armor data chip</label>
+        <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.\n\nThis scroll appears to be contain knowledge on complex dwarven constructions and designs, like core drills, dwarven turrets and even automatons.</description>
+        <graphicData>
+            <texPath>Things/Item/Special/Gha_DataChip_Armor</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+          <MarketValue>800</MarketValue>
+          <MaxHitPoints>100</MaxHitPoints>
+          <Mass>1.5</Mass>
+          <Flammability>0</Flammability>
+        </statBases>
+        <tradeTags>
+          <li>ExoticMisc</li>
+        </tradeTags>
+        <comps>
+          <li Class="CompProperties_CompAnalyzableUnlockResearch">
+            <analysisID>40774904</analysisID>
+            <requiresMechanitor>false</requiresMechanitor>
+    
+            <!-- Analyzable -->
+    
+            <analysisDurationHours>0.5</analysisDurationHours>
+            <destroyedOnAnalyzed>false</destroyedOnAnalyzed>
+            <completedLetterLabel>Data Chip deciphered: {RESEARCH} unlocked</completedLetterLabel>
+            <completedLetter>By deciphering and translating the ancient data-chip, {PAWN_labelShort} has acquired the insight needed for the research project(s) {RESEARCH}.\n\nYour researchers can now use research benches to begin researching how to actually use the technology.</completedLetter>
+            <completedLetterDef>PositiveEvent</completedLetterDef>
+    
+            <!-- Interactable -->
+    
+            <activateTexPath>UI/Icons/Study</activateTexPath>
+    
+            <activateLabelString>Analyze...</activateLabelString>
+            <activateDescString>Analyze the data-chip.</activateDescString>
+            <jobString>Analyze data-chip.</jobString>
+            <guiLabelString>Choose who should analyze this</guiLabelString>
+            <inspectString>Can be analyzed by a colonist.</inspectString>
+    
+            <targetingParameters>
+              <canTargetBuildings>false</canTargetBuildings>
+              <canTargetAnimals>false</canTargetAnimals>
+              <canTargetMechs>false</canTargetMechs>
+              <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+            </targetingParameters>
+          </li>
+        </comps>
+      </ThingDef>
+
+      <ThingDef ParentName="DataSlateBase">
+        <defName>Gha_MechanoidDataChip</defName>
+        <label>mechanoid data chip</label>
+        <description>A plasteel-polymer storage device which houses an extensive sheet of gold alloy weave, every inch of the substrate is etched with microscopic lines of data which when read correctly can grant your researchers the required information to complete a specific research project.\n\nThis scroll appears to be contain knowledge on complex dwarven constructions and designs, like core drills, dwarven turrets and even automatons.</description>
+        <graphicData>
+            <texPath>Things/Item/Special/Gha_DataChip_Mechanoid</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+          <MarketValue>800</MarketValue>
+          <MaxHitPoints>100</MaxHitPoints>
+          <Mass>1.5</Mass>
+          <Flammability>0</Flammability>
+        </statBases>
+        <tradeTags>
+          <li>ExoticMisc</li>
+        </tradeTags>
+        <comps>
+          <li Class="CompProperties_CompAnalyzableUnlockResearch">
+            <analysisID>40774905</analysisID>
+            <requiresMechanitor>false</requiresMechanitor>
+    
+            <!-- Analyzable -->
+    
+            <analysisDurationHours>0.5</analysisDurationHours>
+            <destroyedOnAnalyzed>false</destroyedOnAnalyzed>
+            <completedLetterLabel>Data Chip deciphered: {RESEARCH} unlocked</completedLetterLabel>
+            <completedLetter>By deciphering and translating the ancient data-chip, {PAWN_labelShort} has acquired the insight needed for the research project(s) {RESEARCH}.\n\nYour researchers can now use research benches to begin researching how to actually use the technology.</completedLetter>
+            <completedLetterDef>PositiveEvent</completedLetterDef>
+    
+            <!-- Interactable -->
+    
+            <activateTexPath>UI/Icons/Study</activateTexPath>
+    
+            <activateLabelString>Analyze...</activateLabelString>
+            <activateDescString>Analyze the data-chip.</activateDescString>
+            <jobString>Analyze data-chip.</jobString>
+            <guiLabelString>Choose who should analyze this</guiLabelString>
+            <inspectString>Can be analyzed by a colonist.</inspectString>
+    
+            <targetingParameters>
+              <canTargetBuildings>false</canTargetBuildings>
+              <canTargetAnimals>false</canTargetAnimals>
+              <canTargetMechs>false</canTargetMechs>
+              <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+            </targetingParameters>
+          </li>
+        </comps>
+      </ThingDef>
+</Defs>

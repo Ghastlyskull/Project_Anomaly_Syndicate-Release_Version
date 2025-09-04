@@ -1,0 +1,1240 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- ============== Empire titles - Player gettable non-psycaster ============================= -->
+  
+    <RoyalTitleDef Abstract="True" Name="Gha_BaseSyndicateTitle" >
+      <tags>
+        <li>Gha_SyndicateTitle</li>
+      </tags>
+      <awardThought>GainedTitle</awardThought>
+      <lostThought>LostTitle</lostThought>
+    </RoyalTitleDef>
+  
+    <RoyalTitleDef ParentName="Gha_BaseSyndicateTitle">
+      <defName>Gha_Cadet</defName>
+      <label>cadet</label>
+      <description>The rank of cadet is used by the syndicate to signify a fully-respected individual. Most Syndicate citizens earn it through training in the military or through service. This rank can be awarded for outsiders who act with honor and sympathize with the cause of the syndicate.</description>
+      <seniority>0</seniority>
+      <favorCost>1</favorCost>
+      <changeHeirQuestPoints>1000</changeHeirQuestPoints>
+      <allowDignifiedMeditationFocus>False</allowDignifiedMeditationFocus>
+      <awardWorkerClass>RoyalTitleAwardWorker_Instant</awardWorkerClass>
+    </RoyalTitleDef>
+  
+    <!-- ============== Empire titles - Player gettable psycaster ============================= -->
+  
+    <RoyalTitleDef ParentName="Gha_BaseSyndicateTitle">
+      <defName>Gha_Auxiliary</defName>
+      <label>auxiliary</label>
+      <description>The rank of auxiliary marks a new chance of beginning anew. Initiates serve in important, and specific ways. While they are not fully inside any syndicate circles, it gives the holder the right to use monitoring stations. \n\nThis rank is often held by senior soldiers, spies, advisors, diplomats, intrusion operatives, and other key individuals. Many important outsiders spend their entire lives as an auxiliary, seeking success outside the strictures of the syndicate.</description>
+      <seniority>100</seniority>
+      <favorCost>6</favorCost>
+      <changeHeirQuestPoints>1000</changeHeirQuestPoints>
+      <commonality>1</commonality>
+      <maxPsylinkLevel>1</maxPsylinkLevel>
+    </RoyalTitleDef>
+  
+    <RoyalTitleDef ParentName="Gha_BaseSyndicateTitle">
+      <defName>Gha_Operative</defName>
+      <label>operative</label>
+      <description>The rank of Operative is the first rank of a fully fledged member to the syndicate, and are sent on a wide range of arranged tasks. \n\nSome operatives are sent to defend or attack strategic locations. Others are tasked with safeguarding higher ranking officials or sent to dispatch low ranking threats and anomalies. \n\nDuring war, operatives might lead a platoon of troops, captain a small frigate, or serve their higher ups as a bodyguard.</description>
+      <seniority>200</seniority>
+      <favorCost>6</favorCost>
+      <minExpectation>Moderate</minExpectation>
+      <changeHeirQuestPoints>1200</changeHeirQuestPoints>
+      <recruitmentResistanceOffset>10</recruitmentResistanceOffset>
+      <commonality>1</commonality>
+      <canBeInherited>True</canBeInherited>
+      <permitPointsAwarded>1</permitPointsAwarded>
+      <disabledWorkTags>
+        <li>Cleaning</li>
+      </disabledWorkTags>
+      <requiredApparel>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>Torso</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier2</li>
+          </requiredTags>
+          <allowedTags>
+            <li>Cape</li>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>UpperHead</li>
+            <li>FullHead</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier2</li>
+          </requiredTags>
+          <allowedTags>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+      </requiredApparel>
+      <throneRoomRequirements>
+        <li Class="RoomRequirement_HasAssignedThroneAnyOf">
+          <things>
+            <li>Throne</li>
+            <li>GrandThrone</li>
+            <li>Gha_MonitoringThrone</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_Area">
+          <area>24</area>
+        </li>
+        <li Class="RoomRequirement_TerrainWithTags">
+          <labelKey>RoomRequirementAllFloored</labelKey>
+          <tags>
+            <li>Floor</li>
+            <li>FineFloor</li>
+          </tags>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOfCount">
+          <things>
+            <li>Brazier</li>
+            <li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+          </things>
+          <count>2</count>
+        </li>
+        <li Class="RoomRequirement_AllThingsAnyOfAreGlowing">
+          <labelKey>RoomRequirementAllBraziersMustBeLit</labelKey>
+          <things>
+            <li>Brazier</li>
+            <li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoProductionFacilities</labelKey>
+          <buildingTags><li>Production</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoBeds</labelKey>
+          <buildingTags><li>Bed</li></buildingTags>
+        </li>
+        <li MayRequire="Ludeon.RimWorld.Ideology" Class="RoomRequirement_ForbidAltars">
+          <labelKey>RoomRequirementNoAltars</labelKey>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Biotech">
+          <labelKey>RoomRequirementNoBiotechBuildings</labelKey>
+          <buildingTags><li>Biotech</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Anomaly">
+          <labelKey>RoomRequirementNoAnomalyBuildings</labelKey>
+          <buildingTags><li>Anomaly</li></buildingTags>
+        </li>
+      </throneRoomRequirements>
+      <bedroomRequirements>
+        <li Class="RoomRequirement_Area">
+          <area>16</area>
+        </li>
+        <li Class="RoomRequirement_TerrainWithTags">
+          <labelKey>RoomRequirementAllFloored</labelKey>
+          <tags>
+            <li>Floor</li>
+            <li>FineFloor</li>
+          </tags>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOf">
+          <disablingPrecepts>
+            <li MayRequire="Ludeon.RimWorld.Ideology">SlabBed_Preferred</li>
+          </disablingPrecepts>
+          <things>
+            <li>DoubleBed</li>
+            <li>RoyalBed</li>
+            <li MayRequire="Ludeon.RimWorld.Biotech">DeathrestCasket</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoProductionFacilities</labelKey>
+          <buildingTags><li>Production</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Biotech">
+          <labelKey>RoomRequirementNoBiotechBuildings</labelKey>
+          <buildingTags><li>Biotech</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Anomaly">
+          <labelKey>RoomRequirementNoAnomalyBuildings</labelKey>
+          <buildingTags><li>Anomaly</li></buildingTags>
+        </li>
+      </bedroomRequirements>
+      <foodRequirement>
+        <minQuality>MealSimple</minQuality>
+        <allowedTypes>Processed, Liquor</allowedTypes>
+        <allowedDefs>
+          <li>Ambrosia</li>
+          <li>Milk</li>
+          <li>RawBerries</li>
+        </allowedDefs>
+      </foodRequirement>
+      <maxPsylinkLevel>2</maxPsylinkLevel>
+    </RoyalTitleDef>
+  
+    <RoyalTitleDef ParentName="Gha_BaseSyndicateTitle">
+      <defName>Gha_Enforcer</defName>
+      <label>enforcer</label>
+      <description>The rank of enforcer is given to operatives that have proved their mantle of dealing with anomalies, but have not ascended to higher leadership roles. \n\nTo deal with enemies, enforcers are granted access to the syndicate's higher-tier armor and weaponry, however many remain as enforcers until openings are made or they prove themselves as invaluable to higher officials. \n\nIn peacetime, an enforcer will manage a training ground, factory complex, facility level, or small farming region. In war, enforcers will either lead assault squadrons, or work together to complete their objectives.</description>
+      <seniority>300</seniority>
+      <favorCost>8</favorCost>
+      <minExpectation>High</minExpectation>
+      <changeHeirQuestPoints>1600</changeHeirQuestPoints>
+      <recruitmentResistanceOffset>25</recruitmentResistanceOffset>
+      <commonality>1</commonality>
+      <canBeInherited>True</canBeInherited>
+      <decreeMtbDays>-1</decreeMtbDays> <!-- disabled -->
+      <decreeMentalBreakCommonality>2</decreeMentalBreakCommonality>
+      <permitPointsAwarded>1</permitPointsAwarded>
+      <decreeTags>
+        <li>All</li>
+      </decreeTags>
+      <disabledWorkTags>
+        <li>ManualDumb</li>
+      </disabledWorkTags>
+      <permits>
+        <li>TradeSettlement</li>
+        <li>TradeCaravan</li>
+      </permits>
+      <requiredApparel>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>Torso</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier2</li>
+          </requiredTags>
+          <allowedTags>
+            <li>Cape</li>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>UpperHead</li>
+            <li>FullHead</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier2</li>
+          </requiredTags>
+          <allowedTags>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+      </requiredApparel>
+      <throneRoomRequirements>
+        <li Class="RoomRequirement_HasAssignedThroneAnyOf">
+          <things>
+            <li>Throne</li>
+            <li>GrandThrone</li>
+            <li>Gha_MonitoringThrone</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_Area">
+          <area>30</area>
+        </li>
+        <li Class="RoomRequirement_Impressiveness">
+          <impressiveness>60</impressiveness>
+        </li>
+        <li Class="RoomRequirement_TerrainWithTags">
+          <labelKey>RoomRequirementAllFloored</labelKey>
+          <tags>
+            <li>Floor</li>
+            <li>FineFloor</li>
+          </tags>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOfCount">
+          <things>
+            <li>Brazier</li>
+            <li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+          </things>
+          <count>2</count>
+        </li>
+        <li Class="RoomRequirement_ThingCount">
+          <thingDef>Column</thingDef>
+          <count>2</count>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOf">
+          <things>
+            <li>Harp</li>
+            <li>Harpsichord</li>
+            <li>Piano</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_AllThingsAnyOfAreGlowing">
+          <labelKey>RoomRequirementAllBraziersMustBeLit</labelKey>
+          <things>
+            <li>Brazier</li>
+            <li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoProductionFacilities</labelKey>
+          <buildingTags><li>Production</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoBeds</labelKey>
+          <buildingTags><li>Bed</li></buildingTags>
+        </li>
+        <li MayRequire="Ludeon.RimWorld.Ideology" Class="RoomRequirement_ForbidAltars">
+          <labelKey>RoomRequirementNoAltars</labelKey>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Biotech">
+          <labelKey>RoomRequirementNoBiotechBuildings</labelKey>
+          <buildingTags><li>Biotech</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Anomaly">
+          <labelKey>RoomRequirementNoAnomalyBuildings</labelKey>
+          <buildingTags><li>Anomaly</li></buildingTags>
+        </li>
+      </throneRoomRequirements>
+      <bedroomRequirements>
+        <li Class="RoomRequirement_Area">
+          <area>24</area>
+        </li>
+        <li Class="RoomRequirement_Impressiveness">
+          <impressiveness>40</impressiveness>
+        </li>
+        <li Class="RoomRequirement_TerrainWithTags">
+          <labelKey>RoomRequirementAllFloored</labelKey>
+          <tags>
+            <li>Floor</li>
+            <li>FineFloor</li>
+          </tags>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOf">
+          <disablingPrecepts>
+            <li MayRequire="Ludeon.RimWorld.Ideology">SlabBed_Preferred</li>
+          </disablingPrecepts>
+          <things>
+            <li>DoubleBed</li>
+            <li>RoyalBed</li>
+            <li MayRequire="Ludeon.RimWorld.Biotech">DeathrestCasket</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_Thing">
+          <thingDef>EndTable</thingDef>
+        </li>
+        <li Class="RoomRequirement_Thing">
+          <thingDef>Dresser</thingDef>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoProductionFacilities</labelKey>
+          <buildingTags><li>Production</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Biotech">
+          <labelKey>RoomRequirementNoBiotechBuildings</labelKey>
+          <buildingTags><li>Biotech</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Anomaly">
+          <labelKey>RoomRequirementNoAnomalyBuildings</labelKey>
+          <buildingTags><li>Anomaly</li></buildingTags>
+        </li>
+      </bedroomRequirements>
+      <foodRequirement>
+        <minQuality>MealFine</minQuality>
+        <allowedTypes>Processed, Liquor</allowedTypes>
+        <allowedDefs>
+          <li>Ambrosia</li>
+          <li>Milk</li>
+          <li>RawBerries</li>
+        </allowedDefs>
+      </foodRequirement>
+      <maxPsylinkLevel>3</maxPsylinkLevel>
+    </RoyalTitleDef>
+  
+    <RoyalTitleDef ParentName="Gha_BaseSyndicateTitle">
+      <defName>Gha_Operations_Lieutenant</defName>
+      <label>Operations Lieutenant</label>
+      <description>The rank of operation lieutenant is the bridge between the service-oriented lower ranks below and the power-holding positions above. \n\nDuring peacetime, an operations lieutenant will usually manage a city district, asteroid sector, or agricultural region. During war and missions, they take authority over the smallest combat units that fight independently - terrestrial troop cohorts, or space-borne destroyers or combat groups.</description>
+      <seniority>400</seniority>
+      <favorCost>10</favorCost>
+      <minExpectation>SkyHigh</minExpectation>
+      <requiredMinimumApparelQuality>Normal</requiredMinimumApparelQuality>
+      <changeHeirQuestPoints>2200</changeHeirQuestPoints>
+      <recruitmentResistanceOffset>40</recruitmentResistanceOffset>
+      <commonality>1</commonality>
+      <canBeInherited>True</canBeInherited>
+      <decreeMtbDays>-1</decreeMtbDays> <!-- disabled -->
+      <decreeMentalBreakCommonality>4</decreeMentalBreakCommonality>
+      <permitPointsAwarded>1</permitPointsAwarded>
+      <decreeTags>
+        <li>All</li>
+      </decreeTags>
+      <disabledJoyKinds>
+        <li>Gaming_Dexterity</li>
+      </disabledJoyKinds>
+      <disabledWorkTags>
+        <li>ManualDumb</li>
+        <li>PlantWork</li>
+        <li>Mining</li>
+      </disabledWorkTags>
+      <permits>
+        <li>TradeSettlement</li>
+        <li>TradeCaravan</li>
+      </permits>
+      <requiredApparel>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>Torso</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier2</li>
+          </requiredTags>
+          <allowedTags>
+            <li>Cape</li>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>UpperHead</li>
+            <li>FullHead</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier2</li>
+          </requiredTags>
+          <allowedTags>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+      </requiredApparel>
+      <throneRoomRequirements>
+        <li Class="RoomRequirement_HasAssignedThroneAnyOf">
+          <things>
+            <li>Throne</li>
+            <li>GrandThrone</li>
+            <li>Gha_MonitoringThrone</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_Area">
+          <area>40</area>
+        </li>
+        <li Class="RoomRequirement_Impressiveness">
+          <impressiveness>90</impressiveness>
+        </li>
+        <li Class="RoomRequirement_TerrainWithTags">
+          <labelKey>RoomRequirementAllFloored</labelKey>
+          <tags>
+            <li>Floor</li>
+            <li>FineFloor</li>
+          </tags>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOfCount">
+          <things>
+            <li>Brazier</li>
+            <li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+          </things>
+          <count>2</count>
+        </li>
+        <li Class="RoomRequirement_ThingCount">
+          <thingDef>Column</thingDef>
+          <count>4</count>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOf">
+          <things>
+            <li>Harp</li>
+            <li>Harpsichord</li>
+            <li>Piano</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_AllThingsAnyOfAreGlowing">
+          <labelKey>RoomRequirementAllBraziersMustBeLit</labelKey>
+          <things>
+            <li>Brazier</li>
+            <li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoProductionFacilities</labelKey>
+          <buildingTags><li>Production</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoBeds</labelKey>
+          <buildingTags><li>Bed</li></buildingTags>
+        </li>
+        <li MayRequire="Ludeon.RimWorld.Ideology" Class="RoomRequirement_ForbidAltars">
+          <labelKey>RoomRequirementNoAltars</labelKey>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Biotech">
+          <labelKey>RoomRequirementNoBiotechBuildings</labelKey>
+          <buildingTags><li>Biotech</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Anomaly">
+          <labelKey>RoomRequirementNoAnomalyBuildings</labelKey>
+          <buildingTags><li>Anomaly</li></buildingTags>
+        </li>
+      </throneRoomRequirements>
+      <bedroomRequirements>
+        <li Class="RoomRequirement_Area">
+          <area>24</area>
+        </li>
+        <li Class="RoomRequirement_Impressiveness">
+          <impressiveness>50</impressiveness>
+        </li>
+        <li Class="RoomRequirement_TerrainWithTags">
+          <labelKey>RoomRequirementAllFloored</labelKey>
+          <tags>
+            <li>Floor</li>
+            <li>FineFloor</li>
+          </tags>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOf">
+          <disablingPrecepts>
+            <li MayRequire="Ludeon.RimWorld.Ideology">SlabBed_Preferred</li>
+          </disablingPrecepts>
+          <things>
+            <li>DoubleBed</li>
+            <li>RoyalBed</li>
+            <li MayRequire="Ludeon.RimWorld.Biotech">DeathrestCasket</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_Thing">
+          <thingDef>EndTable</thingDef>
+        </li>
+        <li Class="RoomRequirement_Thing">
+          <thingDef>Dresser</thingDef>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoProductionFacilities</labelKey>
+          <buildingTags><li>Production</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Biotech">
+          <labelKey>RoomRequirementNoBiotechBuildings</labelKey>
+          <buildingTags><li>Biotech</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Anomaly">
+          <labelKey>RoomRequirementNoAnomalyBuildings</labelKey>
+          <buildingTags><li>Anomaly</li></buildingTags>
+        </li>
+      </bedroomRequirements>
+      <foodRequirement>
+        <minQuality>MealFine</minQuality>
+        <allowedTypes>Processed, Liquor</allowedTypes>
+        <allowedDefs>
+          <li>Ambrosia</li>
+          <li>Milk</li>
+          <li>RawBerries</li>
+        </allowedDefs>
+      </foodRequirement>
+      <grantedAbilities><li>Speech</li></grantedAbilities>
+      <speechCooldown>1200000</speechCooldown>
+      <maxPsylinkLevel>4</maxPsylinkLevel>
+    </RoyalTitleDef>
+  
+    <RoyalTitleDef ParentName="Gha_BaseSyndicateTitle">
+      <defName>Gha_Field_Captain</defName>
+      <label>field captain</label>
+      <labelFemale>baroness</labelFemale>
+      <description>Field captains are the lowest of the middle ranks, however it's the highest rank given to military personnel. While lower titles focus on personal service at war or commerce under a higher ranking official, field captains hold rank as semi-independent rulers. Each field captain is subordinate to their commanding scientists, but their obligations are mostly in supplying subjects and troops, and personally lead high ranking soldiers on difficult missions.\n\nIn the Syndicate, a field captain will typically own a city sector, mining colony, or similar outfit. At wartime, a field captain may command a capital ship in name, or control a regiment of troops.</description>
+      <seniority>500</seniority>
+      <favorCost>14</favorCost>
+      <minExpectation>Noble</minExpectation>
+      <requiredMinimumApparelQuality>Normal</requiredMinimumApparelQuality>
+      <changeHeirQuestPoints>2800</changeHeirQuestPoints>
+      <recruitmentResistanceOffset>60</recruitmentResistanceOffset>
+      <commonality>1</commonality>
+      <canBeInherited>True</canBeInherited>
+      <suppressIdleAlert>true</suppressIdleAlert>
+      <decreeMtbDays>-1</decreeMtbDays> <!-- disabled -->
+      <decreeMentalBreakCommonality>8</decreeMentalBreakCommonality>
+      <permitPointsAwarded>1</permitPointsAwarded>
+      <decreeTags>
+        <li>All</li>
+      </decreeTags>
+      <disabledJoyKinds>
+        <li>Gaming_Dexterity</li>
+      </disabledJoyKinds>
+      <disabledWorkTags>
+        <li>ManualDumb</li>
+        <li>ManualSkilled</li>
+        <li>PlantWork</li>
+        <li>Mining</li>
+      </disabledWorkTags>
+      <permits>
+        <li>TradeSettlement</li>
+        <li>TradeCaravan</li>
+        <li>TradeOrbital</li>
+      </permits>
+      <requiredApparel>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>Torso</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier2</li>
+          </requiredTags>
+          <allowedTags>
+            <li>Cape</li>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>Torso</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier5</li>
+          </requiredTags>
+          <allowedTags>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>UpperHead</li>
+            <li>FullHead</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier5</li>
+          </requiredTags>
+          <allowedTags>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+      </requiredApparel>
+      <throneRoomRequirements>
+        <li Class="RoomRequirement_HasAssignedThroneAnyOf">
+          <things>
+            <li>GrandThrone</li>
+            <li>Gha_MonitoringThrone</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_Area">
+          <area>60</area>
+        </li>
+        <li Class="RoomRequirement_Impressiveness">
+          <impressiveness>120</impressiveness>
+        </li>
+        <li Class="RoomRequirement_TerrainWithTags">
+          <labelKey>RoomRequirementAllFineFloored</labelKey>
+          <tags>
+            <li>FineFloor</li>
+          </tags>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOfCount">
+          <things>
+            <li>Brazier</li>
+            <li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+          </things>
+          <count>2</count>
+        </li>
+        <li Class="RoomRequirement_ThingCount">
+          <thingDef>Column</thingDef>
+          <count>4</count>
+        </li>
+        <li Class="RoomRequirement_ThingCount">
+          <thingDef>Drape</thingDef>
+          <count>2</count>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOf">
+          <things>
+            <li>Harpsichord</li>
+            <li>Piano</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_AllThingsAnyOfAreGlowing">
+          <labelKey>RoomRequirementAllBraziersMustBeLit</labelKey>
+          <things>
+            <li>Brazier</li>
+            <li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoProductionFacilities</labelKey>
+          <buildingTags><li>Production</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoBeds</labelKey>
+          <buildingTags><li>Bed</li></buildingTags>
+        </li>
+        <li MayRequire="Ludeon.RimWorld.Ideology" Class="RoomRequirement_ForbidAltars">
+          <labelKey>RoomRequirementNoAltars</labelKey>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Biotech">
+          <labelKey>RoomRequirementNoBiotechBuildings</labelKey>
+          <buildingTags><li>Biotech</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Anomaly">
+          <labelKey>RoomRequirementNoAnomalyBuildings</labelKey>
+          <buildingTags><li>Anomaly</li></buildingTags>
+        </li>
+      </throneRoomRequirements>
+      <bedroomRequirements>
+        <li Class="RoomRequirement_Area">
+          <area>30</area>
+        </li>
+        <li Class="RoomRequirement_Impressiveness">
+          <impressiveness>70</impressiveness>
+        </li>
+        <li Class="RoomRequirement_TerrainWithTags">
+          <labelKey>RoomRequirementAllFloored</labelKey>
+          <tags>
+            <li>Floor</li>
+            <li>FineFloor</li>
+          </tags>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOf">
+          <disablingPrecepts>
+            <li MayRequire="Ludeon.RimWorld.Ideology">SlabBed_Preferred</li>
+          </disablingPrecepts>
+          <things>
+            <li>RoyalBed</li>
+            <li MayRequire="Ludeon.RimWorld.Biotech">DeathrestCasket</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_Thing">
+          <thingDef>EndTable</thingDef>
+        </li>
+        <li Class="RoomRequirement_Thing">
+          <thingDef>Dresser</thingDef>
+        </li>
+        <li Class="RoomRequirement_ThingCount">
+          <thingDef>Drape</thingDef>
+          <count>1</count>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoProductionFacilities</labelKey>
+          <buildingTags><li>Production</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Biotech">
+          <labelKey>RoomRequirementNoBiotechBuildings</labelKey>
+          <buildingTags><li>Biotech</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Anomaly">
+          <labelKey>RoomRequirementNoAnomalyBuildings</labelKey>
+          <buildingTags><li>Anomaly</li></buildingTags>
+        </li>
+      </bedroomRequirements>
+      <foodRequirement>
+        <minQuality>MealLavish</minQuality>
+        <allowedTypes>Processed, Liquor</allowedTypes>
+        <allowedDefs>
+          <li>Ambrosia</li>
+          <li>Milk</li>
+          <li>RawBerries</li>
+          <li>InsectJelly</li>
+        </allowedDefs>
+      </foodRequirement>
+      <grantedAbilities><li>Speech</li></grantedAbilities>
+      <speechCooldown>900000</speechCooldown>
+      <maxPsylinkLevel>5</maxPsylinkLevel>
+    </RoyalTitleDef>
+  
+    <RoyalTitleDef ParentName="Gha_BaseSyndicateTitle">
+      <defName>Gha_Field_Analyst</defName>
+      <label>field analyst</label>
+      <description>The rank of Field Analyst middle rank inside the middle circle or rankings. After time served in multiple operations sometimes field captains are given an opportunity to become a scientist and study while on the field. \n\nIn peacetime, field analysts hold title to facilities or outposts, and might have a small personal fleet, possibly including capital ships.</description>
+      <seniority>600</seniority>
+      <favorCost>20</favorCost>
+      <minExpectation>Royal</minExpectation>
+      <requiredMinimumApparelQuality>Normal</requiredMinimumApparelQuality>
+      <changeHeirQuestPoints>3500</changeHeirQuestPoints>
+      <recruitmentResistanceOffset>75</recruitmentResistanceOffset>
+      <commonality>1</commonality>
+      <canBeInherited>True</canBeInherited>
+      <suppressIdleAlert>true</suppressIdleAlert>
+      <decreeMtbDays>-1</decreeMtbDays> <!-- disabled -->
+      <decreeMentalBreakCommonality>12</decreeMentalBreakCommonality>
+      <permitPointsAwarded>1</permitPointsAwarded>
+      <decreeTags>
+        <li>All</li>
+      </decreeTags>
+      <disabledJoyKinds>
+        <li>Gaming_Dexterity</li>
+      </disabledJoyKinds>
+      <disabledWorkTags>
+        <li>ManualDumb</li>
+        <li>ManualSkilled</li>
+        <li>PlantWork</li>
+        <li>Mining</li>
+        <li>Animals</li>
+      </disabledWorkTags>
+      <permits>
+        <li>TradeSettlement</li>
+        <li>TradeCaravan</li>
+        <li>TradeOrbital</li>
+      </permits>
+      <requiredApparel>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>Torso</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier2</li>
+          </requiredTags>
+          <allowedTags>
+            <li>Cape</li>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>Torso</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier5</li>
+          </requiredTags>
+          <allowedTags>
+            <li>Cape</li>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>Torso</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier6</li>
+          </requiredTags>
+          <allowedTags>
+            <li>Cape</li>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>UpperHead</li>
+            <li>FullHead</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier5</li>
+          </requiredTags>
+          <allowedTags>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+      </requiredApparel>
+      <throneRoomRequirements>
+        <li Class="RoomRequirement_HasAssignedThroneAnyOf">
+          <things>
+            <li>GrandThrone</li>
+            <li>Gha_MonitoringThrone</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_Area">
+          <area>80</area>
+        </li>
+        <li Class="RoomRequirement_Impressiveness">
+          <impressiveness>160</impressiveness>
+        </li>
+        <li Class="RoomRequirement_TerrainWithTags">
+          <labelKey>RoomRequirementAllFineFloored</labelKey>
+          <tags>
+            <li>FineFloor</li>
+          </tags>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOfCount">
+          <things>
+            <li>Brazier</li>
+            <li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+          </things>
+          <count>2</count>
+        </li>
+        <li Class="RoomRequirement_ThingCount">
+          <thingDef>Column</thingDef>
+          <count>6</count>
+        </li>
+        <li Class="RoomRequirement_ThingCount">
+          <thingDef>Drape</thingDef>
+          <count>2</count>
+        </li>
+        <li Class="RoomRequirement_Thing">
+          <thingDef>Piano</thingDef>
+        </li>
+        <li Class="RoomRequirement_AllThingsAnyOfAreGlowing">
+          <labelKey>RoomRequirementAllBraziersMustBeLit</labelKey>
+          <things>
+            <li>Brazier</li>
+            <li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoProductionFacilities</labelKey>
+          <buildingTags><li>Production</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoBeds</labelKey>
+          <buildingTags><li>Bed</li></buildingTags>
+        </li>
+        <li MayRequire="Ludeon.RimWorld.Ideology" Class="RoomRequirement_ForbidAltars">
+          <labelKey>RoomRequirementNoAltars</labelKey>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Biotech">
+          <labelKey>RoomRequirementNoBiotechBuildings</labelKey>
+          <buildingTags><li>Biotech</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Anomaly">
+          <labelKey>RoomRequirementNoAnomalyBuildings</labelKey>
+          <buildingTags><li>Anomaly</li></buildingTags>
+        </li>
+      </throneRoomRequirements>
+      <bedroomRequirements>
+        <li Class="RoomRequirement_Area">
+          <area>30</area>
+        </li>
+        <li Class="RoomRequirement_Impressiveness">
+          <impressiveness>80</impressiveness>
+        </li>
+        <li Class="RoomRequirement_TerrainWithTags">
+          <labelKey>RoomRequirementAllFineFloored</labelKey>
+          <tags>
+            <li>FineFloor</li>
+          </tags>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOf">
+          <disablingPrecepts>
+            <li MayRequire="Ludeon.RimWorld.Ideology">SlabBed_Preferred</li>
+          </disablingPrecepts>
+          <things>
+            <li>RoyalBed</li>
+            <li MayRequire="Ludeon.RimWorld.Biotech">DeathrestCasket</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_Thing">
+          <thingDef>EndTable</thingDef>
+        </li>
+        <li Class="RoomRequirement_Thing">
+          <thingDef>Dresser</thingDef>
+        </li>
+        <li Class="RoomRequirement_ThingCount">
+          <thingDef>Drape</thingDef>
+          <count>1</count>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoProductionFacilities</labelKey>
+          <buildingTags><li>Production</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Biotech">
+          <labelKey>RoomRequirementNoBiotechBuildings</labelKey>
+          <buildingTags><li>Biotech</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Anomaly">
+          <labelKey>RoomRequirementNoAnomalyBuildings</labelKey>
+          <buildingTags><li>Anomaly</li></buildingTags>
+        </li>
+      </bedroomRequirements>
+      <foodRequirement>
+        <minQuality>MealLavish</minQuality>
+        <allowedTypes>Processed, Liquor</allowedTypes>
+        <allowedDefs>
+          <li>Ambrosia</li>
+          <li>Milk</li>
+          <li>RawBerries</li>
+          <li>InsectJelly</li>
+        </allowedDefs>
+      </foodRequirement>
+      <grantedAbilities><li>Speech</li></grantedAbilities>
+      <speechCooldown>600000</speechCooldown>
+      <maxPsylinkLevel>6</maxPsylinkLevel>
+    </RoyalTitleDef>
+  
+    <!-- ============== Empire titles - NPC only psycaster ============================= -->
+  
+  
+    <RoyalTitleDef Abstract="True" Name="BaseSyndicateTitleNPC" ParentName="Gha_BaseSyndicateTitle" >
+      <minExpectation>Royal</minExpectation>
+      <requiredMinimumApparelQuality>Normal</requiredMinimumApparelQuality>
+      <suppressIdleAlert>true</suppressIdleAlert>
+      <disabledJoyKinds>
+        <li>Gaming_Dexterity</li>
+      </disabledJoyKinds>
+      <disabledWorkTags>
+        <li>Commoner</li>
+      </disabledWorkTags>
+      <permits>
+        <li>TradeSettlement</li>
+        <li>TradeCaravan</li>
+        <li>TradeOrbital</li>
+      </permits>
+      <requiredApparel>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>Torso</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier2</li>
+          </requiredTags>
+          <allowedTags>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>Torso</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier5</li>
+          </requiredTags>
+          <allowedTags>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>Torso</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier6</li>
+          </requiredTags>
+          <allowedTags>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+      </requiredApparel>
+      <throneRoomRequirements>
+        <li Class="RoomRequirement_HasAssignedThroneAnyOf">
+          <things>
+            <li>GrandThrone</li>
+            <li>Gha_MonitoringThrone</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_Area">
+          <area>80</area>
+        </li>
+        <li Class="RoomRequirement_Impressiveness">
+          <impressiveness>160</impressiveness>
+        </li>
+        <li Class="RoomRequirement_TerrainWithTags">
+          <labelKey>RoomRequirementAllFineFloored</labelKey>
+          <tags>
+            <li>FineFloor</li>
+          </tags>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOfCount">
+          <things>
+            <li>Brazier</li>
+            <li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+          </things>
+          <count>2</count>
+        </li>
+        <li Class="RoomRequirement_ThingCount">
+          <thingDef>Column</thingDef>
+          <count>6</count>
+        </li>
+        <li Class="RoomRequirement_Thing">
+          <thingDef>Piano</thingDef>
+        </li>
+        <li Class="RoomRequirement_AllThingsAnyOfAreGlowing">
+          <labelKey>RoomRequirementAllBraziersMustBeLit</labelKey>
+          <things>
+            <li>Brazier</li>
+            <li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoProductionFacilities</labelKey>
+          <buildingTags><li>Production</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoBeds</labelKey>
+          <buildingTags><li>Bed</li></buildingTags>
+        </li>
+        <li MayRequire="Ludeon.RimWorld.Ideology" Class="RoomRequirement_ForbidAltars">
+          <labelKey>RoomRequirementNoAltars</labelKey>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Biotech">
+          <labelKey>RoomRequirementNoBiotechBuildings</labelKey>
+          <buildingTags><li>Biotech</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Anomaly">
+          <labelKey>RoomRequirementNoAnomalyBuildings</labelKey>
+          <buildingTags><li>Anomaly</li></buildingTags>
+        </li>
+      </throneRoomRequirements>
+      <bedroomRequirements>
+        <li Class="RoomRequirement_Area">
+          <area>30</area>
+        </li>
+        <li Class="RoomRequirement_Impressiveness">
+          <impressiveness>80</impressiveness>
+        </li>
+        <li Class="RoomRequirement_TerrainWithTags">
+          <labelKey>RoomRequirementAllFineFloored</labelKey>
+          <tags>
+            <li>FineFloor</li>
+          </tags>
+        </li>
+        <li Class="RoomRequirement_ThingAnyOf">
+          <disablingPrecepts>
+            <li MayRequire="Ludeon.RimWorld.Ideology">SlabBed_Preferred</li>
+          </disablingPrecepts>
+          <things>
+            <li>RoyalBed</li>
+            <li MayRequire="Ludeon.RimWorld.Biotech">DeathrestCasket</li>
+          </things>
+        </li>
+        <li Class="RoomRequirement_Thing">
+          <thingDef>EndTable</thingDef>
+        </li>
+        <li Class="RoomRequirement_Thing">
+          <thingDef>Dresser</thingDef>
+        </li>
+        <li Class="RoomRequirement_ThingCount">
+          <thingDef>Drape</thingDef>
+          <count>1</count>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings">
+          <labelKey>RoomRequirementNoProductionFacilities</labelKey>
+          <buildingTags><li>Production</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Biotech">
+          <labelKey>RoomRequirementNoBiotechBuildings</labelKey>
+          <buildingTags><li>Biotech</li></buildingTags>
+        </li>
+        <li Class="RoomRequirement_ForbiddenBuildings" MayRequire="Ludeon.RimWorld.Anomaly">
+          <labelKey>RoomRequirementNoAnomalyBuildings</labelKey>
+          <buildingTags><li>Anomaly</li></buildingTags>
+        </li>
+      </bedroomRequirements>
+      <foodRequirement>
+        <minQuality>MealLavish</minQuality>
+        <allowedTypes>Processed, Liquor</allowedTypes>
+        <allowedDefs>
+          <li>Ambrosia</li>
+          <li>Milk</li>
+          <li>RawBerries</li>
+          <li>InsectJelly</li>
+        </allowedDefs>
+      </foodRequirement>
+      <grantedAbilities><li>Speech</li></grantedAbilities>
+      <speechCooldown>600000</speechCooldown>
+      <maxPsylinkLevel>6</maxPsylinkLevel>
+    </RoyalTitleDef>
+  
+    <RoyalTitleDef ParentName="BaseSyndicateTitleNPC">
+      <defName>Gha_Senior_Analyst</defName>
+      <label>senior analyst</label>
+      <description>The syndicate rank of senior analyst is the highest of the middle ranks. Senior analysts have seen their fair share of combat, and have studied multiple anomalies. \n\n In the syndicate, senior analysts control provinces, mega-complexes, or moons. \n\n At war, a senior analyst can field a division-level force, or a fleet with capital ships and dozens of support craft.</description>
+      <seniority>700</seniority>
+      <commonality>1</commonality>
+      <recruitmentResistanceOffset>125</recruitmentResistanceOffset>
+      <requiredApparel>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>UpperHead</li>
+            <li>FullHead</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier6</li>
+          </requiredTags>
+          <allowedTags>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+      </requiredApparel>
+    </RoyalTitleDef>
+  
+    <RoyalTitleDef ParentName="BaseSyndicateTitleNPC">
+      <defName>Gha_Chief_Investigator</defName>
+      <label>chief investigator</label>
+      <description>The syndicate rank of chief investigator has control over the planets. \n\n During times of peace, chief investigators are analyzing reports from other facilities and studying high threat level anomalies. \n\nAt war, a chief investigator can usually field an army-sized force of multiple divisions, supported by several fleets. Some command from a super-capital ship or control space-based megastructures.</description>
+      <seniority>800</seniority>
+      <commonality>0.6</commonality>
+      <recruitmentResistanceOffset>150</recruitmentResistanceOffset>
+      <requiredApparel>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>UpperHead</li>
+            <li>FullHead</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier6</li>
+          </requiredTags>
+          <allowedTags>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+      </requiredApparel>
+    </RoyalTitleDef>
+  
+    <RoyalTitleDef ParentName="BaseSyndicateTitleNPC">
+      <defName>Gha_Director</defName>
+      <label>director</label>
+      <description>The Syndicate rank of Director has dominion over an entire star system and its facilities. \n\nIn the Syndicate, since interstellar travel times are years long, directors rule their systems with great degree of independence. Each director swears their loyalty to the administrator, however the administrator may be many light-years away, a director may go years or decades without interaction with the administrator.</description>
+      <seniority>900</seniority>
+      <commonality>0.1</commonality>
+      <recruitmentResistanceOffset>200</recruitmentResistanceOffset>
+      <replaceOnRecruited>Gha_Chief_Investigator</replaceOnRecruited>
+      <requiredApparel>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>UpperHead</li>
+            <li>FullHead</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier7</li>
+          </requiredTags>
+          <allowedTags>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+      </requiredApparel>
+    </RoyalTitleDef>
+  
+    <!-- Emperor should never appear in the game in any way, it's just here for completeness on UI lists etc. -->
+    <RoyalTitleDef ParentName="BaseSyndicateTitleNPC">
+      <defName>Gha_Administrator</defName>
+      <label>administrator</label>
+      <description>The Syndicate rank of Administrator has sole dominion over the entire organization, all its planets, fleets, facilities, and people. All other ranks swear their loyalty to the Administrator and the cause. However, the Administrator still needs the support of the lower ranks to remain in power.</description>
+      <seniority>1000</seniority>
+      <commonality>0</commonality>
+      <requiredApparel>
+        <li>
+          <bodyPartGroupsMatchAny>
+            <li>UpperHead</li>
+            <li>FullHead</li>
+          </bodyPartGroupsMatchAny>
+          <requiredTags>
+            <li>RoyalTier7</li>
+          </requiredTags>
+          <allowedTags>
+            <li>PrestigeCombatGear</li>
+            <li>Psychic</li>
+            <li>Mechlord</li>
+          </allowedTags>
+        </li>
+      </requiredApparel>
+    </RoyalTitleDef>
+  
+  </Defs>

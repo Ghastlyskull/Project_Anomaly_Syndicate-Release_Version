@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MutantDef ParentName="GhoulParent">
+    <defName>GhoulWork</defName>
+    <workDisables Inherit="false"></workDisables>
+    <disableApparel>false</disableApparel>
+    <thinkTree>WorkGhoul</thinkTree>
+    <thinkTreeConstant>WorkGhoulConstant</thinkTreeConstant>
+    <canCarryPawns>true</canCarryPawns>
+    <canTend>true</canTend>
+    <preventsMentalBreaks>true</preventsMentalBreaks>
+    <disablesIdeo>false</disablesIdeo>
+    <disableOwnership>false</disableOwnership>
+    <disablePolicies>false</disablePolicies>
+    <disableTitles>false</disableTitles>
+    <disableEatingAtTable>false</disableEatingAtTable>
+    <incapableOfSocialInteractions>false</incapableOfSocialInteractions>
+    <drugWhitelist>
+      <li>MindWakeSerum</li>
+    </drugWhitelist>
+  </MutantDef>
+</Defs>

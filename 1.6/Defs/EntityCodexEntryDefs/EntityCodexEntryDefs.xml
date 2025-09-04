@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <EntityCodexEntryDef>
+    <defName>Gha_TheInfestedFrames</defName>
+    <label>the infested frames</label>
+    <description>Once proud constructs of Syndicate engineering, these mechs have been overtaken by Horax corruption. Their armored shells twist and contort as if something alive lives beneath the plating.</description>
+    <uiIconPath>UI/CodexEntries/InfestedFrame</uiIconPath>
+    <category>Advanced</category>
+    <linkedThings>
+      <li>Mech_Gha_Horax_Vanguard</li>
+      <li>Mech_Gha_Horax_Venatoris</li>
+      <li>Mech_Gha_Horax_Bulwark</li>
+    </linkedThings>
+    <orderInCategory>910</orderInCategory>
+  </EntityCodexEntryDef>
+
+</Defs>

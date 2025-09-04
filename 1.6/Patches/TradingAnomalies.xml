@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Nociosphere" or defName="Metalhorror" or defName="Revenant" or defName="Sightstealer" or defName="CreepJoiner" or defName="Noctol" or defName="FleshmassNucleus" or defName="Gorehulk" or defName="Devourer" or defName="Chimera" or @Name="BaseFleshbeast"]/tradeability</xpath>
+    <value>
+      <tradeability>Sellable</tradeability>
+    </value>
+  </Operation>
+
+  <Operation  Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Dreadmeld" or defName="FleshmassNucleus" or defName="Chimera" or defName="Devourer" or defName="Noctolith" or defName="Noctol" or defName="Revenant" or defName="Metalhorror" or defName="Nociosphere"]/statBases</xpath>
+    <value>
+      <MarketValue>5</MarketValue>
+      <RoyalFavorValue>5</RoyalFavorValue>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Fingerspike" or defName="Toughspike" or defName="Trispike" or defName="Bulbfreak" or defName="Sightstealer" or defName="Shambler" or defName="Ghoul" or defName="Gorehulk"]/statBases</xpath>
+    <value>
+      <MarketValue>3</MarketValue>
+      <RoyalFavorValue>3</RoyalFavorValue>
+    </value>
+  </Operation>
+
+
+
+</Patch>

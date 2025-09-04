@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <IncidentDef>
+        <defName>Incident_GhaSyndicateTributeArrival</defName>
+        <label>Gha Syndicate tribute collector caravan arrival</label>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>ProjectAnomalySyndicate.IncidentWorker_GhaSyndicateTributeCollector</workerClass>
+        <category>FactionArrival</category>
+        <baseChance>0.5</baseChance> <!-- Adjust if needed for frequency -->
+        <requireColonistsPresent>True</requireColonistsPresent>
+    </IncidentDef>
+</Defs>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<!---->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<success>Normal</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+                    <xpath>Defs/RecipeDef[defName = "ResurrectMediumMech"]/fixedIngredientFilter/thingDefs</xpath>
+                    <value>
+                        <li>Mech_Gha_Vanguard</li>
+                    </value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<!---->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<success>Normal</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+                    <xpath>Defs/RecipeDef[defName = "ResurrectMediumMech"]/fixedIngredientFilter/thingDefs</xpath>
+                    <value>
+                        <li>Mech_Gha_Venatoris</li>
+                    </value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+<!---->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<success>Normal</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+                    <xpath>Defs/RecipeDef[defName = "ResurrectHeavyMech"]/fixedIngredientFilter/thingDefs</xpath>
+                    <value>
+                        <li>Mech_Gha_Bulwark</li>
+                    </value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

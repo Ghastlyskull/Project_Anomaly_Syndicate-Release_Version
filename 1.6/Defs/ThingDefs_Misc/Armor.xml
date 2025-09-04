@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+      <ThingDef ParentName="ApparelArmorHelmetPowerBase">
+        <defName>Gha_Apparel_RevenateHelmet</defName>
+        <label>revenate helment</label>
+        <description>The Revenant Helmet is a specialized piece of Syndicate equipment, commonly issued to high-ranking soldiers tasked with anomaly containment. Equipped with advanced sensory modules, the helmet grants wearers a brief early warning and sight on otherwise invisible anomalies.</description>
+        <tradeTags>
+          <li>Armor</li>
+        </tradeTags>
+        <graphicData>
+            <texPath>Things/Pawn/Apparel/Revenatehelmet/RevenateHelm</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+          <WorkToMake>21000</WorkToMake>
+          <MaxHitPoints>150</MaxHitPoints>
+          <Mass>2.2</Mass>
+          <Flammability>0.4</Flammability>
+          <ArmorRating_Sharp>1.02</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.58</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.60</ArmorRating_Heat>
+          <Insulation_Cold>2</Insulation_Cold>
+          <Insulation_Heat>0</Insulation_Heat>
+          <EquipDelay>4</EquipDelay>
+          <VacuumResistance MayRequire="Ludeon.Rimworld.Odyssey">0.32</VacuumResistance>
+        </statBases>
+        
+        <modExtensions>
+          <li Class="ProjectAnomalySyndicate.InvisibilityDisruptorModExtension">
+            <radius>12.5</radius>
+          </li>
+          
+        </modExtensions>
+        <equippedStatOffsets>
+          <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.1</SlaveSuppressionOffset>
+        </equippedStatOffsets>
+        <costList>
+          <ComponentSpacer>1</ComponentSpacer>
+          <Plasteel>30</Plasteel>
+          <Steel>30</Steel>
+          <Shard>1</Shard>
+        </costList>
+        <apparel Inherit="False">
+            <bodyPartGroups>
+              <li>FullHead</li>
+            </bodyPartGroups>
+            <wornGraphicPath>Things/Pawn/Apparel/Revenatehelmet/RevenateHelm</wornGraphicPath>
+            <useWornGraphicMask>true</useWornGraphicMask>
+            <layers>
+              <li>Overhead</li>
+            </layers>
+            <tags>
+              <li>SpacerMilitary</li>
+            </tags>
+            <defaultOutfitTags>
+              <li>SpacerMilitary</li>
+            </defaultOutfitTags>
+            <useDeflectMetalEffect>true</useDeflectMetalEffect>
+        </apparel>
+        <recipeMaker>
+          <researchPrerequisite Inherit="False">Gha_Research_Plasma_Weaponry</researchPrerequisite>
+          <displayPriority>100</displayPriority>
+        </recipeMaker>
+        <placeWorkers>
+          <li>PlaceWorker_ProximityDetector</li>
+        </placeWorkers>
+      </ThingDef>
+
+      <!--Exterminator Armor-->
+      <ThingDef ParentName="ApparelArmorExterminatorBase">
+        <defName>Gha_Apparel_ArmorExterminator</defName>
+        <label>exterminator armor</label>
+        <description>A sealed suit of advanced powered armor, designed to withstand both anomalous and conventional threats. Heavy plasteel-weave plates with ablative layering stop even concentrated small-arms fire, while a fully enclosed life-support system protects the wearer from hostile environments, including blood rain exposure. Neuro-memetic assistors reduce the crippling weight of the armor, though its bulk still slows movement significantly.</description>
+        <tradeTags>
+          <li>Armor</li>
+        </tradeTags>
+        <recipeMaker>
+          <displayPriority>125</displayPriority>
+        </recipeMaker>
+      </ThingDef>
+    
+      <ThingDef ParentName="ApparelArmorHelmetExterminatorBase">
+        <defName>Gha_Apparel_ArmorHelmetExterminator</defName>
+        <label>exterminator helmet</label>
+        <description>A reinforced helmet built to match the Exterminator armor. Its plasteel composite shell provides excellent protection, while its sealed internals safeguard against hostile environmental effects. Integrated systems are tuned to detect subtle disruptions in light, allowing the wearer to pinpoint otherwise invisible anomalies before they can strike.</description>
+        <recipeMaker>
+          <displayPriority>120</displayPriority>
+        </recipeMaker>
+      </ThingDef>
+
+      <!--ThingDef/Base Exterminator-->
+      <ThingDef Name="ApparelArmorExterminatorBase" ParentName="ArmorMachineableBase" Abstract="True">
+        <techLevel>Spacer</techLevel>
+        <recipeMaker>
+          <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+          <researchPrerequisite>Gha_Research_Exterminator_Armor</researchPrerequisite>
+          <skillRequirements>
+            <Crafting>8</Crafting>
+          </skillRequirements>
+          <recipeUsers Inherit="False">
+            <li>FabricationBench</li>
+          </recipeUsers>
+        </recipeMaker>
+        <graphicData>
+          <texPath>Things/Pawn/Apparel/ExterminatorArmor/ExterminatorArmor</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <uiIconScale>1.25</uiIconScale>
+        <generateCommonality>2</generateCommonality>
+        <statBases>
+          <WorkToMake>75000</WorkToMake>
+          <MaxHitPoints>400</MaxHitPoints>
+          <Mass>15</Mass>
+          <Flammability>0.6</Flammability>
+          <ArmorRating_Sharp>1.6</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.7</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.6</ArmorRating_Heat>
+          <Insulation_Cold>40</Insulation_Cold>
+          <Insulation_Heat>15</Insulation_Heat>
+          <EquipDelay>17</EquipDelay>
+          <VacuumResistance MayRequire="Ludeon.Rimworld.Odyssey">0.69</VacuumResistance>
+        </statBases>
+        <equippedStatOffsets>
+          <MoveSpeed>-0.8</MoveSpeed>
+        </equippedStatOffsets>
+        <tradeTags>
+          <li>HiTechArmor</li>
+        </tradeTags>
+        <thingCategories>
+          <li>ApparelArmor</li>
+        </thingCategories>
+        <costList>
+          <ComponentSpacer>6</ComponentSpacer>
+          <Plasteel>150</Plasteel>
+          <Uranium>50</Uranium>
+          <Shard>1</Shard>
+        </costList>
+        <apparel>
+          <bodyPartGroups>
+            <li>Torso</li>
+            <li>Neck</li>
+            <li>Shoulders</li>
+            <li>Arms</li>
+            <li>Legs</li>
+          </bodyPartGroups>
+          <wornGraphicPath>Things/Pawn/Apparel/ExterminatorArmor/ExterminatorArmor</wornGraphicPath>
+          <layers>
+            <li>Middle</li>
+            <li>Shell</li>
+          </layers>
+          <defaultOutfitTags>
+            <li>Soldier</li>
+          </defaultOutfitTags>
+          <useDeflectMetalEffect>true</useDeflectMetalEffect>
+          <soundWear>Wear_PowerArmor</soundWear>
+          <soundRemove>Remove_PowerArmor</soundRemove>
+        </apparel>
+        <colorGenerator Class="ColorGenerator_Options">
+          <options>
+            <li>
+              <weight>10</weight>
+              <only>(0.9,0.9,0.9)</only>
+            </li>
+            <li>
+              <weight>10</weight>
+              <only>(0.33,0.33,0.33)</only>
+            </li>
+            <li>
+              <weight>10</weight>
+              <only>(0.65,0.65,0.65)</only>
+            </li>
+            <li>
+              <weight>6</weight>
+              <min>(0.3,0.3,0.3)</min>
+              <max>(0.5,0.5,0.5)</max>
+            </li>
+          </options>
+        </colorGenerator>
+        <comps>
+          <li Class="CompProperties_Biocodable"/>
+        </comps>
+        <modExtensions>
+          <li Class="ProjectAnomalySyndicate.BloodRainResistanceModExtension">
+            <bloodRainResistance>0.5</bloodRainResistance>
+          </li>
+        </modExtensions>
+        <thingSetMakerTags>
+          <li>RewardStandardHighFreq</li>
+        </thingSetMakerTags>
+      </ThingDef>
+    
+      <ThingDef Name="ApparelArmorHelmetExterminatorBase" ParentName="ArmorHelmetMakeableBase" Abstract="True">
+        <techLevel>Spacer</techLevel>
+        <recipeMaker>
+          <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+          <researchPrerequisite>Gha_Research_Exterminator_Armor</researchPrerequisite>
+          <skillRequirements>
+            <Crafting>8</Crafting>
+          </skillRequirements>
+          <recipeUsers Inherit="False">
+            <li>FabricationBench</li>
+          </recipeUsers>
+        </recipeMaker>
+        <graphicData>
+          <texPath>Things/Pawn/Apparel/ExterminatorHelment/ExterminatorHelm</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(0.9, 0.9)</drawSize>
+        </graphicData>
+        <tradeTags>
+          <li>HiTechArmor</li>
+          <li>Armor</li>
+        </tradeTags>
+        <generateCommonality>2</generateCommonality>
+        <statBases>
+          <WorkToMake>26250</WorkToMake>
+          <MaxHitPoints>180</MaxHitPoints>
+          <Mass>2</Mass>
+          <Flammability>0.4</Flammability>
+          <ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.5</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.6</ArmorRating_Heat>
+          <Insulation_Cold>4</Insulation_Cold>
+          <Insulation_Heat>2</Insulation_Heat>
+          <VacuumResistance MayRequire="Ludeon.Rimworld.Odyssey">0.32</VacuumResistance>
+          <EquipDelay>6</EquipDelay>
+        </statBases>
+        <costList>
+          <ComponentSpacer>1</ComponentSpacer>
+          <Plasteel>50</Plasteel>
+          <Shard>1</Shard>
+        </costList>
+        <apparel>
+          <bodyPartGroups>
+            <li>FullHead</li>
+          </bodyPartGroups>
+          <wornGraphicPath>Things/Pawn/Apparel/ExterminatorHelment/ExterminatorHelm</wornGraphicPath>
+          <useWornGraphicMask>true</useWornGraphicMask>
+          <layers>
+            <li>Overhead</li>
+          </layers>
+          <defaultOutfitTags>
+            <li>Soldier</li>
+          </defaultOutfitTags>
+          <useDeflectMetalEffect>true</useDeflectMetalEffect>
+        </apparel>
+        <colorGenerator Class="ColorGenerator_Options">
+          <options>
+            <li>
+              <weight>10</weight>
+              <only>(0.33,0.33,0.33,1)</only>
+            </li>
+            <li>
+              <weight>10</weight>
+              <only>(0.65,0.65,0.65,1)</only>
+            </li>
+            <li>
+              <weight>6</weight>
+              <min>(0.3,0.3,0.3,1)</min>
+              <max>(0.5,0.5,0.5,1)</max>
+            </li>
+            <li>
+              <weight>10.1</weight>
+              <only>(0.9,0.9,0.9,1)</only>
+            </li>
+          </options>
+        </colorGenerator>
+        <comps>
+          <li Class="CompProperties_Biocodable"/>
+        </comps>
+        <modExtensions>
+          <li Class="ProjectAnomalySyndicate.BloodRainResistanceModExtension">
+            <bloodRainResistance>0.5</bloodRainResistance> 
+          </li>
+
+          <li Class="ProjectAnomalySyndicate.InvisibilityDisruptorModExtension">
+            <radius>19</radius>
+          </li>
+        </modExtensions>
+        <thingSetMakerTags>
+          <li>RewardStandardHighFreq</li>
+        </thingSetMakerTags>
+      </ThingDef>
+      
+      <!--Synapse Armor-->
+      <ThingDef ParentName="ApparelArmorReconBase">
+        <defName>Gha_Apparel_ArmorSynapse</defName>
+        <label>synapse armor</label>
+        <description>The Synapse Armor is standard-issue for Syndicate field researchers, designed to protect against environmental dangers while remaining light and flexible. It’s commonly worn by researchers deployed inside anomaly territory.</description>
+        <graphicData>
+          <texPath>Things/Pawn/Apparel/Synapse_Armor/Synapse_Armor</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+          <WorkToMake>90000</WorkToMake>
+          <MaxHitPoints>280</MaxHitPoints>
+          <Flammability>0.4</Flammability>
+          <ArmorRating_Sharp>0.92</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.46</ArmorRating_Heat>
+          <Insulation_Cold>32</Insulation_Cold>
+          <Insulation_Heat>9</Insulation_Heat>
+          <VacuumResistance MayRequire="Ludeon.Rimworld.Odyssey">0.69</VacuumResistance>
+          <EquipDelay>11</EquipDelay>
+        </statBases>
+        <equippedStatOffsets>
+          <PsychicSensitivity>0.05</PsychicSensitivity>
+          <PsychicEntropyRecoveryRate>0.033</PsychicEntropyRecoveryRate>
+        </equippedStatOffsets>
+        <costList>
+          <Gold>9</Gold>
+          <Plasteel>100</Plasteel>
+          <Shard>2</Shard>
+        </costList>
+        <apparel>
+          <tags>
+            <li>PrestigeCombatGear</li>
+          </tags>
+          <wornGraphicPath>Things/Pawn/Apparel/Synapse_Armor/Synapse_Armor</wornGraphicPath>
+        </apparel>
+        <recipeMaker>
+          <displayPriority>145</displayPriority>
+          <researchPrerequisite>Gha_Research_Synapse_Armor</researchPrerequisite>
+        </recipeMaker>
+        <comps>
+          <li Class="CompProperties_Biocodable"/>
+        </comps>
+        <modExtensions>
+          <li Class="ProjectAnomalySyndicate.BloodRainResistanceModExtension">
+            <bloodRainResistance>0.5</bloodRainResistance> 
+          </li>
+        </modExtensions>
+      </ThingDef>
+    
+      <ThingDef ParentName="ApparelArmorHelmetReconBase">
+        <defName>Gha_Apparel_ArmorSynapseHelmet</defName>
+        <label>synapse helmet</label>
+        <description>The Synapse Helmet is standard-issue for Syndicate field researchers, designed to protect against environmental dangers while remaining light and flexible. It’s commonly worn by researchers deployed inside anomaly territory.</description>
+        <graphicData>
+          <texPath>Things/Pawn/Apparel/Synapse_Armor_Helmet/Synapse_Helm</texPath>
+          <shaderType>CutoutComplex</shaderType>
+          <drawSize>(0.9, 0.9)</drawSize>
+        </graphicData>
+        <statBases>
+          <WorkToMake>31500</WorkToMake>
+        </statBases>
+        <equippedStatOffsets>
+          <PsychicSensitivity>0.05</PsychicSensitivity>
+          <PsychicEntropyRecoveryRate>0.033</PsychicEntropyRecoveryRate>
+        </equippedStatOffsets>
+        <costList>
+          <Gold>4</Gold>
+          <Plasteel>40</Plasteel>
+          <Shard>1</Shard>
+        </costList>
+        <apparel>
+          <tags>
+            <li>PrestigeCombatGear</li>
+          </tags>
+          <wornGraphicPath>Things/Pawn/Apparel/Synapse_Armor_Helmet/Synapse_Helm</wornGraphicPath>
+          <forceEyesVisibleForRotations>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </forceEyesVisibleForRotations>
+        </apparel>
+        <tradeTags>
+          <li>Armor</li>
+        </tradeTags>
+        <recipeMaker>
+          <displayPriority>140</displayPriority>
+          <researchPrerequisite>Gha_Research_Synapse_Armor</researchPrerequisite>
+        </recipeMaker>
+        <comps>
+          <li Class="CompProperties_Biocodable"/>
+        </comps>
+        <modExtensions>
+          <li Class="ProjectAnomalySyndicate.BloodRainResistanceModExtension">
+            <bloodRainResistance>0.5</bloodRainResistance> 
+          </li>
+
+          <li Class="ProjectAnomalySyndicate.InvisibilityDisruptorModExtension">
+            <radius>15.9</radius>
+          </li>
+        </modExtensions>
+      </ThingDef>
+
+      <!-- Judicator Armor ThingDef/Base-->
+      <ThingDef Name="ApparelArmorJudicatorBase" ParentName="ArmorMachineableBase" Abstract="True">
+      <techLevel>Spacer</techLevel>
+      <recipeMaker>
+        <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+        <researchPrerequisite>Gha_Research_Exterminator_Armor</researchPrerequisite>
+        <skillRequirements>
+          <Crafting>8</Crafting>
+        </skillRequirements>
+        <recipeUsers Inherit="False">
+          <li>FabricationBench</li>
+        </recipeUsers>
+      </recipeMaker>
+      <graphicData>
+        <texPath>Things/Pawn/Apparel/JudicatorArmor/JudicatorArmor</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+      </graphicData>
+      <uiIconScale>1.25</uiIconScale>
+      <generateCommonality>2</generateCommonality>
+      <statBases>
+        <WorkToMake>75000</WorkToMake>
+        <MaxHitPoints>400</MaxHitPoints>
+        <Mass>15</Mass>
+        <Flammability>0.4</Flammability>
+        <ArmorRating_Sharp>1.9</ArmorRating_Sharp>
+        <ArmorRating_Blunt>0.9</ArmorRating_Blunt>
+        <ArmorRating_Heat>1.0</ArmorRating_Heat>
+        <Insulation_Cold>60</Insulation_Cold>
+        <Insulation_Heat>22</Insulation_Heat>
+        <VacuumResistance MayRequire="Ludeon.Rimworld.Odyssey">0.69</VacuumResistance>
+        <EquipDelay>17</EquipDelay>
+      </statBases>
+      <equippedStatOffsets>
+        <MoveSpeed>-0.8</MoveSpeed>
+      </equippedStatOffsets>
+      <tradeTags>
+        <li>HiTechArmor</li>
+      </tradeTags>
+      <thingCategories>
+        <li>ApparelArmor</li>
+      </thingCategories>
+      <costList>
+        <ComponentSpacer>6</ComponentSpacer>
+        <Plasteel>150</Plasteel>
+        <Uranium>50</Uranium>
+      </costList>
+      <apparel>
+        <bodyPartGroups>
+          <li>Torso</li>
+          <li>Neck</li>
+          <li>Shoulders</li>
+          <li>Arms</li>
+          <li>Legs</li>
+        </bodyPartGroups>
+        <wornGraphicPath>Things/Pawn/Apparel/JudicatorArmor/JudicatorArmor</wornGraphicPath>
+        <layers>
+          <li>Middle</li>
+          <li>Shell</li>
+        </layers>
+          <tags>
+            <li>PrestigeCombatGear</li>
+          </tags>
+        <useDeflectMetalEffect>true</useDeflectMetalEffect>
+        <soundWear>Wear_PowerArmor</soundWear>
+        <soundRemove>Remove_PowerArmor</soundRemove>
+      </apparel>
+      <colorGenerator Class="ColorGenerator_Options">
+        <options>
+          <li>
+            <weight>10</weight>
+            <only>(0.9,0.9,0.9)</only>
+          </li>
+          <li>
+            <weight>10</weight>
+            <only>(0.33,0.33,0.33)</only>
+          </li>
+          <li>
+            <weight>10</weight>
+            <only>(0.65,0.65,0.65)</only>
+          </li>
+          <li>
+            <weight>6</weight>
+            <min>(0.3,0.3,0.3)</min>
+            <max>(0.5,0.5,0.5)</max>
+          </li>
+        </options>
+      </colorGenerator>
+      <comps>
+        <li Class="CompProperties_Biocodable"/>
+      </comps>
+      <thingSetMakerTags>
+        <li>RewardStandardHighFreq</li>
+      </thingSetMakerTags>
+    </ThingDef>
+
+    <!-- Judicator Armor -->
+    <ThingDef ParentName="ApparelArmorJudicatorBase">
+    <defName>Apparel_GHA_ArmorJudicator</defName>
+    <label>Judicator armor</label>
+    <description>A suit of heavy powered armor, built for maximum protection at the cost of mobility. Heavy layered plasteel-weave plates with solid ablative coatings stop all but the most well-aimed or powerful attacks and exposure to the weather. Advanced Sensory Modules provides a brief warning on otherwise invisible anomalies. Neuro-memetic assistors prevent the suit's massive weight from immobilizing the wearer entirely, but the suit is still quite cumbersome. \n\nExpensive and beautiful, the judicator armor is usually made for those of high importance. Embedded eltex threads inside the robe also enhance the wearer's psychic sensitivity.</description>
+    <graphicData>
+      <texPath>Things/Pawn/Apparel/JudicatorArmor/JudicatorArmor</texPath>
+      <shaderType>Graphic_Single</shaderType>
+    </graphicData>
+    <statBases>
+      <WorkToMake>150000</WorkToMake>
+    </statBases>
+    <equippedStatOffsets>
+      <PsychicSensitivity>0.10</PsychicSensitivity>
+      <PsychicEntropyRecoveryRate>0.066</PsychicEntropyRecoveryRate>
+    </equippedStatOffsets>
+    <costList>
+      <Uranium>60</Uranium>
+      <Plasteel>200</Plasteel>
+      <Shard>3</Shard>
+    </costList>
+    <apparel>
+      <tags>
+        <li>PrestigeCombatGear</li>
+        <li>SyndicatePromoter</li>
+      </tags>
+      <wornGraphicPath>Things/Pawn/Apparel/JudicatorArmor/JudicatorArmor</wornGraphicPath>
+    </apparel>
+    <tradeTags>
+      <li>Armor</li>
+    </tradeTags>
+    <recipeMaker>
+      <displayPriority>165</displayPriority>
+    </recipeMaker>
+    <modExtensions>
+        <li Class="ProjectAnomalySyndicate.BloodRainResistanceModExtension">
+          <bloodRainResistance>0.75</bloodRainResistance> 
+        </li>
+
+        <li Class="ProjectAnomalySyndicate.InvisibilityDisruptorModExtension">
+          <radius>6</radius>
+        </li>
+    </modExtensions>
+  </ThingDef>
+</Defs>

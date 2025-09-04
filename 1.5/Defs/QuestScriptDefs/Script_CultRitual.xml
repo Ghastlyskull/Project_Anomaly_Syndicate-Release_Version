@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <QuestScriptDef>
+    <defName>Gha_CultRitual</defName>
+    <rootSelectionWeight>1.0</rootSelectionWeight>
+    <rootMinPoints>500</rootMinPoints>
+    <canGiveRoyalFavor>true</canGiveRoyalFavor>
+    <expireDaysRange>4~8</expireDaysRange>
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->The [ritual] [threat]</li>
+        <li>questName->[ritual] [threat]</li>
+        <li>questName->[asker_nameDef] and the [threat]</li>
+        <li>threat->Ritual</li>
+        <li>threat->Summoning</li>
+        <li>threat->Ceremony</li>
+        <li>threat->Convergence</li>
+        <li>threat->Gathering</li>
+        <li>ritual->Forbidden</li>
+        <li>ritual->Dark</li>
+        <li>ritual->Eldritch</li>
+        <li>ritual->Profane</li>
+        <li>ritual->Horax</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->Syndicate intelligence has detected a Horax Cult temple near [map_definite]. A massive ritual is underway, and if it is completed, the consequences could be catastrophic. \n\nThe Syndicate wants us to eliminate the cultists before the ritual finishes. The area is heavily guarded, and time is critical, [asker_nameFull] warns</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    <root Class="ProjectAnomalySyndicate.Quests.QuestNode_AnomalyCheckSequence">
+      <nodes>
+        <li Class="QuestNode_SubScript">
+          <def>Util_RandomizePointsChallengeRating</def>
+          <parms>
+            <pointsFactorTwoStar>1.5</pointsFactorTwoStar>
+            <pointsFactorThreeStar>2</pointsFactorThreeStar>
+          </parms>
+        </li>
+        <li Class="QuestNode_SubScript">
+          <def>Util_AdjustPointsForDistantFight</def>
+        </li>
+        <li Class="QuestNode_GetMap" />
+        <li Class="ProjectAnomalySyndicate.Quests.QuestNode_GetLeaderOfFaction">
+          <storeAs>asker</storeAs>
+          <factionDef>Gha_Syndicate</factionDef>
+        </li>
+        <li Class="QuestNode_GetSiteTile">
+          <storeAs>siteTile</storeAs>
+          <preferCloserTiles>true</preferCloserTiles>
+        </li>
+        <li Class="QuestNode_GetSitePartDefsByTagsAndFaction">
+          <storeAs>sitePartDefs</storeAs>
+          <sitePartsTags>
+            <li>
+              <tag>CultRitual</tag>
+            </li>
+          </sitePartsTags>
+        </li>
+        <li Class="ProjectAnomalySyndicate.Quests.QuestNode_GetFactionFromDefName">
+          <storeAs>enemyFaction</storeAs>
+          <defName>HoraxCult</defName>
+        </li>
+        <li Class="QuestNode_GetDefaultSitePartsParams">
+          <tile>$siteTile</tile>
+          <faction>$enemyFaction</faction>
+          <sitePartDefs>$sitePartDefs</sitePartDefs>
+          <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+        </li>
+        <li Class="QuestNode_GenerateSite">
+          <storeAs>site</storeAs>
+          <sitePartsParams>$sitePartsParams</sitePartsParams>
+          <tile>$siteTile</tile>
+        </li>
+        <li Class="QuestNode_GetSiteThreatPoints">
+          <storeAs>sitePoints</storeAs>
+          <sitePartsParams>$sitePartsParams</sitePartsParams>
+        </li>
+        <li Class="QuestNode_SubScript">
+          <def>Util_GetDefaultRewardValueFromPoints</def>
+          <parms>
+            <!-- Use the actual threat points generated (some site parts define a minimum threshold) -->
+            <points>$sitePoints</points>
+          </parms>
+        </li>
+
+        <!-- Inflate reward value. Since we're basing the reward value on the threat points generated, we need to do this
+             even though the threat points was deflated from the input points already. -->
+        <li Class="QuestNode_Multiply">
+          <value1>$rewardValue</value1>
+          <value2>1.75</value2>
+          <storeAs>rewardValue</storeAs>
+        </li>
+
+        <li Class="QuestNode_SpawnWorldObjects">
+          <worldObjects>$site</worldObjects>
+        </li>
+
+        <li Class="QuestNode_WorldObjectTimeout">
+          <worldObject>$site</worldObject>
+          <isQuestTimeout>true</isQuestTimeout>
+          <delayTicks>$(randInt(4,8)*60000)</delayTicks>
+          <inSignalDisable>site.MapGenerated</inSignalDisable>
+          <destroyOnCleanup>true</destroyOnCleanup>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label TKey="LetterLabelQuestExpired">Quest expired: [resolvedQuestName]</label>
+                <text TKey="LetterTextQuestExpired">The gathering of the gathering of cultists have dissapeared and the ritual was a success. The quest [resolvedQuestName] has expired.</text>
+              </li>
+              <li Class="ProjectAnomalySyndicate.Quests.QuestNode_HoraxRitualEffect">
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+
+              
+            </nodes>
+          </node>
+        </li>
+
+        <!-- If we enter and leave, the map is destroyed. Fail the quest. -->
+        <li Class="QuestNode_Signal">
+          <inSignal>site.Destroyed</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="ProjectAnomalySyndicate.Quests.QuestNode_HoraxRitualEffect">
+                <inSignal>site.Destroyed</inSignal>
+              </li>
+              <li Class="QuestNode_Letter">
+                <label TKey="LetterLabelQuestFailed">Quest failed: [resolvedQuestName]</label>
+                <text TKey="LetterTextQuestFailed">After being discovered, the gathering of cultists have dissapeared and the ritual was a success. The quest [resolvedQuestName] has ended.</text>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+
+        <li Class="QuestNode_Signal">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Notify_PlayerRaidedSomeone">
+                <getRaidersFromMapParent>$site</getRaidersFromMapParent>
+              </li>
+              <li Class="QuestNode_GiveRewards">
+                <parms>
+                  <allowGoodwill>true</allowGoodwill>
+                  <allowRoyalFavor>true</allowRoyalFavor>
+                  <chosenPawnSignal>ChosenPawnForReward</chosenPawnSignal>
+                </parms>
+                <addCampLootReward>true</addCampLootReward>
+                <customLetterLabel TKey="LetterLabelPaymentArrived">Payment arrived</customLetterLabel>
+                <customLetterText TKey="LetterTextPaymentArrived">You have defeated the cultists!\n\nThe payment from [asker_faction_name] has arrived.</customLetterText>
+                <nodeIfChosenPawnSignalUsed Class="QuestNode_Letter">
+                  <letterDef>ChoosePawn</letterDef>
+                  <label TKey="LetterLabelFavorReceiver">[asker_faction_royalFavorLabel]</label>
+                  <text TKey="LetterTextFavorReceiver">These colonists participated in the victory for the quest [resolvedQuestName]. [asker_definite] wants to know who should receive the [royalFavorReward_amount] [asker_faction_royalFavorLabel] for this service.</text>
+                  <useColonistsOnMap>$site</useColonistsOnMap>
+                  <chosenPawnSignal>ChosenPawnForReward</chosenPawnSignal>
+                </nodeIfChosenPawnSignalUsed>
+              </li>
+            </nodes>
+          </node>
+        </li>
+        
+        <li Class="QuestNode_End">
+          <inSignal>site.AllEnemiesDefeated</inSignal>
+          <outcome>Success</outcome>
+        </li>
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+</Defs>

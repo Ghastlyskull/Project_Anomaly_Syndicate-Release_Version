@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="BodyPartBionicSyndicateBase" ParentName="BodyPartBionicBase" Abstract="True">
+    <tradeTags>
+      <li>ImplantSyndicateCommon</li>
+    </tradeTags>
+    <techHediffsTags>
+      <li>ImplantSyndicateCommon</li>
+    </techHediffsTags>
+  </ThingDef>
+</Defs>
